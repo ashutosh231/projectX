@@ -17,7 +17,7 @@ export default function Footer() {
         <ul className="flex flex-wrap justify-center gap-6 list-none">
           <li>
             <a
-              href="#hero"
+              href="/"
               className="transition duration-300 hover:text-blue-400"
             >
               Home
@@ -25,7 +25,7 @@ export default function Footer() {
           </li>
           <li>
             <a
-              href="#services"
+              href="/about"
               className="transition duration-300 hover:text-blue-400"
             >
               About
@@ -33,7 +33,7 @@ export default function Footer() {
           </li>
           <li>
             <a
-              href="#recommend"
+              href="/recommend"
               className="transition duration-300 hover:text-blue-400"
             >
               Places

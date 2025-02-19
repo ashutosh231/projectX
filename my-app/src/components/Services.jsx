@@ -11,7 +11,7 @@ export default function Services() {
     },
     {
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWvS6nRgYfHNb_oViVV-XHqEECkpmx2hL-g&s',
-      title: 'Covid Safe',
+      title: 'Hygienic',
       subTitle:
         'Our hotels follow strict Covid safety measures to ensure a worry-free stay.',
     },

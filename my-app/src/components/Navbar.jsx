@@ -1,3 +1,4 @@
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import { useState } from "react";
@@ -9,6 +10,14 @@ export default function Navbar() {
 
   const toggleNavbar = () => setNavbarState(!navbarState);
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
+  // Routes for each dropdown sub-item
+  const exploreRoutes = {
+    "Destinations": "/recommend",
+    "Activities": "/activities",
+    "Accommodation": "/accommodation",
+    "TravelTips": "/travel-tips", // You can adjust or remove if not used
+  };
 
   return (
     <>
@@ -29,10 +38,19 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center relative">
-          {["Home", "About", "Places"].map((item) => (
+          {/* Home link now redirects to the homepage */}
+          <li>
+            <Link
+              to="/" // Hardcoded to the homepage
+              className="text-lg hover:text-teal-400 transition duration-300"
+            >
+              Home
+            </Link>
+          </li>
+          {["About", "Accomodation"].map((item) => (
             <li key={item}>
               <Link
-                to={`/${item.toLowerCase()}`}
+                to={`/accommodation`} 
                 className="text-lg hover:text-teal-400 transition duration-300"
               >
                 {item}
@@ -66,10 +84,10 @@ export default function Navbar() {
             </button>
             {dropdownOpen && (
               <ul className="absolute left-0 top-full mt-2 w-48 bg-white text-black rounded-md shadow-lg z-50 overflow-visible">
-                {["Destinations", "Activities", "Accommodation", "Travel Tips"].map((subItem) => (
+                {Object.keys(exploreRoutes).map((subItem) => (
                   <li key={subItem}>
                     <Link
-                      to={`/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
+                      to={exploreRoutes[subItem]} // Dynamic route for each sub-item
                       className="block px-4 py-2 hover:bg-teal-400 hover:text-white transition duration-300"
                       onClick={() => setDropdownOpen(false)}
                     >
@@ -93,7 +111,18 @@ export default function Navbar() {
       {navbarState && (
         <div className="fixed top-14 left-0 w-full bg-black shadow-lg md:hidden z-50">
           <ul className="flex flex-col items-start p-4">
-            {["Home", "About", "Places", "Testimonials"].map((item) => (
+            {/* Home link now redirects to the homepage */}
+            <li key="home" className="w-full mb-4">
+              <Link
+                to="/" // Hardcoded to the homepage
+                className="text-white text-lg hover:text-teal-400 transition duration-300"
+                onClick={toggleNavbar}
+              >
+                Home
+              </Link>
+            </li>
+
+            {["About", "Accomodation", "Testimonials"].map((item) => (
               <li key={item} className="w-full mb-4">
                 <Link
                   to={`/${item.toLowerCase()}`}
@@ -131,10 +160,10 @@ export default function Navbar() {
               </button>
               {dropdownOpen && (
                 <ul className="absolute left-0 top-full mt-2 w-full bg-black text-white rounded-md shadow-lg z-50 overflow-visible">
-                  {["Destinations", "Activities", "Accommodation", "Travel Tips"].map((subItem) => (
+                  {Object.keys(exploreRoutes).map((subItem) => (
                     <li key={subItem} className="w-full">
                       <Link
-                        to={`/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
+                        to={exploreRoutes[subItem]}  // Dynamic route for each sub-item
                         className="block px-4 py-2 hover:bg-teal-400 hover:text-white transition duration-300"
                         onClick={() => {
                           setDropdownOpen(false);
