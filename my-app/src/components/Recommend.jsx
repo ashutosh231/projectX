@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { destinations } from "/Users/aryanraj/Desktop/Tour-Planner/my-app/src/data/Recommend.js"; // Corrected import
+import { destinations } from "../data/Recommend"; // Corrected import
 
 export default function Recommend() {
   const [active, setActive] = useState(0);
