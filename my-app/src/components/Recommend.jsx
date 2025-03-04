@@ -30,7 +30,7 @@ export default function Recommend() {
   };
 
   return (
-    <section id="recommend" className="py-12 bg-black">
+    <section id="recommend" className="py-12 bg-gradient-to-r from-gray-900 via-black to-gray-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-extrabold text-white">Recommended Destinations ✈️</h2>
@@ -51,7 +51,7 @@ export default function Recommend() {
                 className={`cursor-pointer px-4 py-2 text-sm rounded-md transition duration-300 ${
                   active === index
                     ? "bg-purple-600 text-white font-semibold shadow-lg"
-                    : "bg-black text-white"
+                    : "bg-purple-600 text-white"
                 }`}
                 onClick={() => filterDestinations(index)}
               >
@@ -120,7 +120,7 @@ const TiltCard = ({ destination, handleBooking }) => {
   return (
     <div
       ref={cardRef}
-      className="relative bg-gradient-to-br bg-black rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-out transform"
+      className="relative bg-gradient-to-b from-black via-gray-900 to-black rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-out transform"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

@@ -3,7 +3,7 @@ import { AiFillInstagram } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white p-8">
+    <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white p-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center">
         {/* Copyright and Name */}
         <div className="flex flex-col gap-2">

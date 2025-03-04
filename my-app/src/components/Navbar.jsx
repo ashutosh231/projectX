@@ -13,18 +13,21 @@ export default function Navbar() {
 
   // Routes for each dropdown sub-item
   const exploreRoutes = {
-    "Destinations": "/recommend",
-    "Activities": "/activities",
-    "Accommodation": "/accommodation",
-    "TravelTips": "/travel-tips", // You can adjust or remove if not used
+    Destinations: "/recommend",
+    Activities: "/activities",
+    Accommodation: "/accommodation",
+    TravelTips: "/travel-tips", // You can adjust or remove if not used
   };
 
   return (
     <>
       {/* Navbar */}
-      <nav className="relative flex justify-between items-center p-4 bg-black text-white shadow-lg border-b-2 border-gray-700 z-50">
+      <nav className="relative flex justify-between items-center p-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white shadow-lg border-b-2 border-gray-700 z-50">
         <div className="flex items-center gap-4">
-          <Link to="/" className="cursor-pointer text-2xl font-bold uppercase tracking-wide">
+          <Link
+            to="/"
+            className="cursor-pointer text-2xl font-bold uppercase tracking-wide"
+          >
             Tour
           </Link>
           <div className="md:hidden" onClick={toggleNavbar}>
@@ -50,7 +53,7 @@ export default function Navbar() {
           {["About", "Accomodation"].map((item) => (
             <li key={item}>
               <Link
-                to={`/accommodation`} 
+                to={`/accommodation`}
                 className="text-lg hover:text-teal-400 transition duration-300"
               >
                 {item}
@@ -100,11 +103,19 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <Link to="/login">
-          <button className="hidden md:block px-6 py-2 text-white bg-teal-600 rounded-lg text-lg uppercase hover:bg-teal-700 transition duration-300 shadow-md">
-            Login
-          </button>
-        </Link>
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex gap-4">
+          <Link to="/booking">
+            <button className="px-6 py-2 text-white bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg text-lg uppercase hover:bg-orange-700 transition duration-300 shadow-md">
+              Book Now
+            </button>
+          </Link>
+          <Link to="/login">
+            <button className="px-6 py-2 text-white bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg text-lg uppercase hover:bg-teal-700 transition duration-300 shadow-md">
+              Login
+            </button>
+          </Link>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -163,7 +174,7 @@ export default function Navbar() {
                   {Object.keys(exploreRoutes).map((subItem) => (
                     <li key={subItem} className="w-full">
                       <Link
-                        to={exploreRoutes[subItem]}  // Dynamic route for each sub-item
+                        to={exploreRoutes[subItem]} // Dynamic route for each sub-item
                         className="block px-4 py-2 hover:bg-teal-400 hover:text-white transition duration-300"
                         onClick={() => {
                           setDropdownOpen(false);
@@ -178,6 +189,14 @@ export default function Navbar() {
               )}
             </li>
             <li className="w-full mt-4">
+              <Link to="/booking">
+                <button
+                  className="w-full px-6 py-3 text-white bg-orange-600 rounded-lg text-lg uppercase hover:bg-orange-700 transition duration-300 shadow-md mb-4"
+                  onClick={toggleNavbar}
+                >
+                  Book Now
+                </button>
+              </Link>
               <Link to="/login">
                 <button
                   className="w-full px-6 py-3 text-white bg-teal-600 rounded-lg text-lg uppercase hover:bg-teal-700 transition duration-300 shadow-md"

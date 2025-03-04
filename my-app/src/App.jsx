@@ -17,6 +17,7 @@ import DestinationBooking from "./pages/DestinationBooking";
 import AccommodationBooking from "./pages/AccommodationBooking";
 import Payment from "./pages/Payment";
 import AuthPage from "./pages/AuthPage";
+// import PaymentOption from "./pages/PaymentOption";
 
 function App() {
   useEffect(() => {
@@ -88,11 +89,14 @@ function App() {
         <Route path="/select-destination" element={<DestinationBooking />} />
         <Route path="/select-accommodation" element={<AccommodationBooking />} />
         <Route path="/payment" element={<Payment />} />
+        
+        
         </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
-
 export default App;
+
+
