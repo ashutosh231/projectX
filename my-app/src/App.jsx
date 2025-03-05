@@ -1,5 +1,7 @@
+
+
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
@@ -10,22 +12,23 @@ import ScrollToTop from "./components/ScrollToTop";
 import About from "./components/About";
 import scrollreveal from "scrollreveal";
 import Activities from "./components/Activities";
-import Accommodation from "./components/Accomodation";  // Fixed path
+import Accommodation from "./components/Accomodation"; // Fixed import
 import TravelTips from "./components/TravelTips";
-import BookingPage from "../src/pages/BookingPage";
+import BookingPage from "./pages/BookingPage";
 import DestinationBooking from "./pages/DestinationBooking";
 import AccommodationBooking from "./pages/AccommodationBooking";
 import Payment from "./pages/Payment";
 import AuthPage from "./pages/AuthPage";
-// import PaymentOption from "./pages/PaymentOption";
 
-function App() {
+function ScrollRevealEffect() {
+  const location = useLocation(); // Detects route changes
+
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
       distance: "90px",
-      duration: 1000, // Faster animation
-      reset: true,
+      duration: 800, // Smooth transition
+      reset: false, // Prevents repeated resets
     });
 
     sr.reveal(
@@ -36,26 +39,29 @@ function App() {
         #recommend,
         #testimonials,
         #about,
-        #login,
-        #signup,
-        footer,
         #activities,
         #accommodation,
-        #travel-tips
+        #travel-tips,
+        footer
       `,
       {
-        opacity: 0.8,
-        interval: 100, // Faster reveal timing
+        opacity: 0,
+        interval: 150, // Smooth staggered reveal
       }
     );
 
     return () => {
       sr.destroy();
     };
-  }, []);
+  }, [location]); // Runs when the route changes
 
+  return null;
+}
+
+function App() {
   return (
     <Router>
+      <ScrollRevealEffect />
       <div className="font-sans scroll-smooth bg-black">
         <ScrollToTop />
         <Navbar />
@@ -73,30 +79,24 @@ function App() {
               </>
             }
           />
-          {/* About Page */}
+          {/* Individual Pages */}
           <Route path="/about" element={<About />} />
-          {/* Recommend Page */}
           <Route path="/recommend" element={<Recommend />} />
-          {/* Login Page */}
-          <Route path="/login" element={<AuthPage/>}/>
-          
-          {/* Activities Page */}
+          <Route path="/login" element={<AuthPage />} />
           <Route path="/activities" element={<Activities />} />
-          {/* Accommodation Page */}
           <Route path="/accommodation" element={<Accommodation />} />
           <Route path="/travel-tips" element={<TravelTips />} />
           <Route path="/booking" element={<BookingPage />} />
-        <Route path="/select-destination" element={<DestinationBooking />} />
-        <Route path="/select-accommodation" element={<AccommodationBooking />} />
-        <Route path="/payment" element={<Payment />} />
-        
-        
+          <Route path="/select-destination" element={<DestinationBooking />} />
+          <Route path="/select-accommodation" element={<AccommodationBooking />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
+
 export default App;
 
 

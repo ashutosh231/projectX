@@ -1,10 +1,25 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const [destination, setDestination] = useState("");
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
   const navigate = useNavigate();
+
+  const headingText = "Discover Your Next Adventure";
+
+  useEffect(() => {
+    if (index < headingText.length) {
+      const timer = setTimeout(() => {
+        setText((prev) => prev + headingText[index]);
+        setIndex(index + 1);
+      }, 100); // Typing speed (adjust if needed)
+
+      return () => clearTimeout(timer);
+    }
+  }, [index]);
 
   const handleSearch = () => {
     if (destination.trim()) {
@@ -18,9 +33,12 @@ export default function Hero() {
     <section className="relative w-full h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white overflow-hidden">
       {/* Left Section (Search) */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left p-12 space-y-6 animate-fade-in">
+        {/* Typing Effect for Heading */}
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 drop-shadow-2xl">
-          Discover Your Next Adventure
+          {text}
+          <span className="animate-blink">.....</span>
         </h1>
+
         <p className="text-lg md:text-2xl opacity-90 font-medium text-white/80">
           Explore breathtaking destinations curated just for you.
         </p>
@@ -54,8 +72,8 @@ export default function Hero() {
       {/* Right Section (Image Gallery) */}
       <div className="w-full md:w-1/2 grid grid-cols-2 gap-6 p-8 relative animate-fade-in delay-200">
         {[
-          "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?cs=srgb&dl=pexels-thorsten-technoman-109353-338515.jpg&fm=jpg",
-          "https://images.pexels.com/photos/1450372/pexels-photo-1450372.jpeg?cs=srgb&dl=pexels-asadphoto-1450372.jpg&fm=jpg",
+          "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
+          "https://images.pexels.com/photos/1450372/pexels-photo-1450372.jpeg",
           "https://www.india.com/wp-content/uploads/2024/11/Kupwara.jpg",
           "https://www.tripgiraffe.com/upload/media/0/fcaqu/sydney1.png",
         ].map((img, index) => (
@@ -63,7 +81,7 @@ export default function Hero() {
             key={index}
             className="relative group overflow-hidden rounded-3xl shadow-2xl border-4 border-white/50 transform transition duration-300 hover:scale-105 hover:shadow-3xl"
           >
-            <img src={img} alt="Destination" className="w-full h-64 object-cover" />
+            <img src={img} alt={`Destination ${index + 1}`} className="w-full h-64 object-cover" />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-bold">
               Discover More
             </div>

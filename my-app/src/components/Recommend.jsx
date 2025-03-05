@@ -1,7 +1,7 @@
 
-
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import { destinations } from "../data/Recommend"; // Corrected import
 
 export default function Recommend() {
@@ -30,16 +30,20 @@ export default function Recommend() {
   };
 
   return (
-    <section id="recommend" className="py-12 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+    <section id="recommend" className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-extrabold text-white">Recommended Destinations ✈️</h2>
-          <p className="text-white">Explore stunning locations curated just for you.</p>
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            Recommended Destinations ✈️
+          </h2>
+          <p className="text-gray-300 mt-4 text-lg">
+            Explore stunning locations curated just for you.
+          </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex justify-center mb-8 overflow-x-auto">
-          <ul className="flex list-none gap-4 border-b-2 border-gray-700 px-4 flex-nowrap">
+        <div className="flex justify-center mb-12 overflow-x-auto">
+          <ul className="flex list-none gap-4 px-4 flex-nowrap">
             {[
               "All Destinations",
               "Budget-Friendly (< $50,000)",
@@ -48,10 +52,10 @@ export default function Recommend() {
             ].map((pkg, index) => (
               <li
                 key={index}
-                className={`cursor-pointer px-4 py-2 text-sm rounded-md transition duration-300 ${
+                className={`cursor-pointer px-6 py-3 text-sm rounded-full transition duration-300 ${
                   active === index
-                    ? "bg-purple-600 text-white font-semibold shadow-lg"
-                    : "bg-purple-600 text-white"
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold shadow-lg"
+                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 }`}
                 onClick={() => filterDestinations(index)}
               >
@@ -62,7 +66,7 @@ export default function Recommend() {
         </div>
 
         {/* Destinations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredDestinations.map((destination, index) => (
             <TiltCard key={index} destination={destination} handleBooking={handleBooking} />
           ))}
@@ -125,7 +129,7 @@ const TiltCard = ({ destination, handleBooking }) => {
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className="absolute w-[180px] h-[180px] bg-gradient-to-r from-purple-500 to-green opacity-40 blur-[50px] transition-all duration-100 pointer-events-none"
+        className="absolute w-[180px] h-[180px] bg-gradient-to-r from-purple-500 to-green-500 opacity-40 blur-[50px] transition-all duration-100 pointer-events-none"
         style={{
           top: cursorStyle.top,
           left: cursorStyle.left,
@@ -135,23 +139,23 @@ const TiltCard = ({ destination, handleBooking }) => {
       ></div>
 
       <div className="relative">
-        <img src={destination.image} alt={destination.title} className="w-full h-56 object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        <img src={destination.image} alt={destination.title} className="w-full h-64 object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       </div>
 
       <div className="p-6">
         <h3 className="text-2xl font-bold text-white mb-2">{destination.title}</h3>
-        <p className="text-white mb-4">{destination.subTitle}</p>
+        <p className="text-gray-300 mb-4">{destination.subTitle}</p>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-purple-600 font-semibold text-xl">${destination.cost}</span>
-          <span className="text-white-100">{destination.duration}</span>
+          <span className="text-purple-400 font-semibold text-xl">${destination.cost}</span>
+          <span className="text-gray-300">{destination.duration}</span>
         </div>
-        <div className="flex justify-between items-center text-white mb-6">
+        <div className="flex justify-between items-center text-gray-300 mb-6">
           <span>{destination.distance}</span>
           <span className="flex items-center">⭐ {destination.rating} ({destination.reviews} reviews)</span>
         </div>
         <button
-          className="w-full cursor-pointer bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+          className="w-full cursor-pointer bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:shadow-lg"
           onClick={() => handleBooking(destination)}
         >
           Book Now
@@ -159,5 +163,20 @@ const TiltCard = ({ destination, handleBooking }) => {
       </div>
     </div>
   );
+};
+
+// Correct Placement of PropTypes
+TiltCard.propTypes = {
+  destination: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
+    cost: PropTypes.number.isRequired,
+    duration: PropTypes.string.isRequired,
+    distance: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    reviews: PropTypes.number.isRequired,
+  }).isRequired,
+  handleBooking: PropTypes.func.isRequired,
 };
 

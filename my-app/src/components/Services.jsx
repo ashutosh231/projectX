@@ -1,42 +1,78 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 
 export default function Services() {
   const data = [
     {
-      icon: 'https://cdn1.vectorstock.com/i/1000x1000/61/75/best-price-guarantee-label-icon-vector-14786175.jpg',
+      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrY5j0DtBHe4MEqcWSIAb0qeMDZ32zIjDHtA&s',
       title: 'Get Best Prices',
       subTitle:
         'Pay through our app and unlock thousands in savings with amazing rewards.',
     },
     {
-      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWvS6nRgYfHNb_oViVV-XHqEECkpmx2hL-g&s',
+      icon: 'https://media.istockphoto.com/id/1328621078/photo/housekeeper-with-protective-face-mask-cleaning-furniture-with-disinfecting-spray-in-hotel-room.jpg?s=612x612&w=0&k=20&c=FUr7AtpQ_HTGh83GDBe_WcQvLERNhMpT7xS5FJnDoDE=',
       title: 'Hygienic',
       subTitle:
         'Our hotels follow strict Covid safety measures to ensure a worry-free stay.',
     },
     {
-      icon: 'https://media.istockphoto.com/id/1470243585/vector/different-payment-options-vector-illustrations-set.jpg?s=612x612&w=0&k=20&c=dC-lcWeIUu3vhaQHD5MsQE158EZHMBGpYT_2KRg_a-I=',
+      icon: 'https://e7.pngegg.com/pngimages/183/310/png-clipart-brand-logo-product-design-visa-electron-payment-method-logo-brand-thumbnail.png',
       title: 'Flexible Payment',
       subTitle:
         'Enjoy multiple payment options and get exclusive rewards on every transaction.',
     },
     {
-      icon: 'https://hblimg.mmtcdn.com/content/hubble/img/bali/mmt/destination/m_bali_l_393_629.jpg',
+      icon: 'https://images.pexels.com/photos/2265876/pexels-photo-2265876.jpeg?cs=srgb&dl=pexels-vince-2265876.jpg&fm=jpg',
       title: 'Find The Best Near You',
       subTitle:
         'Discover the top-rated hotels, restaurants, and attractions nearby in one click.',
     },
   ];
 
+  const headingText = "Why Choose Us?";
+  const [displayText, setDisplayText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 500;
+
+  useEffect(() => {
+    let timer;
+    
+    if (!isDeleting && index < headingText.length) {
+      timer = setTimeout(() => {
+        setDisplayText((prev) => prev + headingText[index]);
+        setIndex(index + 1);
+      }, typingSpeed);
+    } else if (isDeleting && index > 0) {
+      timer = setTimeout(() => {
+        setDisplayText((prev) => prev.slice(0, -1));
+        setIndex(index - 1);
+      }, deletingSpeed);
+    } else {
+      timer = setTimeout(() => {
+        setIsDeleting(!isDeleting);
+      }, pauseTime);
+    }
+
+    return () => clearTimeout(timer);
+  }, [index, isDeleting]);
+
   return (
-    <section id="services" className="py-12 bg-gradient-to-r from-gray-900 via-black to-gray-900  px-6">
+    <section id="services" className="py-12 bg-gradient-to-r from-gray-900 via-black to-gray-900 px-6">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-extrabold text-white">Why Choose Us?</h2>
+        {/* Typing Effect for Heading */}
+        <h2 className="text-4xl font-extrabold text-white">
+          {displayText}
+          <span className="animate-blink">|</span>
+        </h2>
         <p className="text-white mt-2">
           We offer the best services to make your travel experience seamless and enjoyable.
         </p>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {data.map((service, index) => (
           <HoverCard key={index} service={service} />
