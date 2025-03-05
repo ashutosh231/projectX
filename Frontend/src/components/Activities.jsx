@@ -23,7 +23,7 @@ export default function Activities() {
               <p className="text-sm text-gray-300 mb-4">{activity.location}</p>
               <p className="text-gray-300 mb-4">{activity.description}</p>
               <div className="mt-4 flex justify-between items-center">
-                <span className="text-lg font-bold text-blue-400">${activity.price}</span>
+                <span className="text-lg font-bold text-blue-400">Rs.{activity.price}</span>
                 <span className="text-sm text-gray-400">{activity.duration}</span>
               </div>
             </div>

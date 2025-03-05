@@ -1,31 +1,43 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const [destination, setDestination] = useState("");
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
   const navigate = useNavigate();
 
   const headingText = "Discover Your Next Adventure";
+  const [displayText, setDisplayText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 500;
 
   useEffect(() => {
-    if (index < headingText.length) {
-      const timer = setTimeout(() => {
-        setText((prev) => prev + headingText[index]);
-        setIndex(index + 1);
-      }, 100); // Typing speed (adjust if needed)
+    let timer;
 
-      return () => clearTimeout(timer);
+    if (!isDeleting && index < headingText.length) {
+      timer = setTimeout(() => {
+        setDisplayText((prev) => prev + headingText[index]);
+        setIndex((prev) => prev + 1);
+      }, typingSpeed);
+    } else if (isDeleting && index > 0) {
+      timer = setTimeout(() => {
+        setDisplayText((prev) => prev.slice(0, -1));
+        setIndex((prev) => prev - 1);
+      }, deletingSpeed);
+    } else {
+      timer = setTimeout(() => {
+        setIsDeleting((prev) => !prev);
+      }, pauseTime);
     }
-  }, [index]);
+
+    return () => clearTimeout(timer);
+  }, [index, isDeleting, headingText]);
 
   const handleSearch = () => {
     if (destination.trim()) {
-      navigate(`/recommend?destination=${destination}`);
-    } else {
-      alert("Please enter a destination");
+      navigate(`/search?destination=${encodeURIComponent(destination)}`);
     }
   };
 
@@ -35,7 +47,7 @@ export default function Hero() {
       <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left p-12 space-y-6 animate-fade-in">
         {/* Typing Effect for Heading */}
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 drop-shadow-2xl">
-          {text}
+          {displayText}
           <span className="animate-blink">.....</span>
         </h1>
 
@@ -76,12 +88,12 @@ export default function Hero() {
           "https://images.pexels.com/photos/1450372/pexels-photo-1450372.jpeg",
           "https://www.india.com/wp-content/uploads/2024/11/Kupwara.jpg",
           "https://www.tripgiraffe.com/upload/media/0/fcaqu/sydney1.png",
-        ].map((img, index) => (
+        ].map((img, idx) => (
           <div
-            key={index}
+            key={idx}
             className="relative group overflow-hidden rounded-3xl shadow-2xl border-4 border-white/50 transform transition duration-300 hover:scale-105 hover:shadow-3xl"
           >
-            <img src={img} alt={`Destination ${index + 1}`} className="w-full h-64 object-cover" />
+            <img src={img} alt={`Destination ${idx + 1}`} className="w-full h-64 object-cover" />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-bold">
               Discover More
             </div>

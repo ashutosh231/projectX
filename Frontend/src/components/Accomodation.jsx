@@ -35,7 +35,7 @@ export default function Accommodation() {
               <p className="text-sm text-gray-400"><strong>Location:</strong> {accommodation.location}</p>
               <div className="mt-4 flex justify-between items-center">
                 <span className="text-lg font-bold text-blue-400">
-                  ${accommodation.cost}
+                  Rs.{accommodation.cost}
                 </span>
                 <span className="text-sm text-gray-400">{accommodation.duration}</span>
               </div>

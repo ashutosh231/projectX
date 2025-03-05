@@ -46,9 +46,9 @@ export default function Recommend() {
           <ul className="flex list-none gap-4 px-4 flex-nowrap">
             {[
               "All Destinations",
-              "Budget-Friendly (< $50,000)",
-              "Mid-Range ($50,000 - $80,000)",
-              "Luxury Travel (> $80,000)",
+              "Budget-Friendly (< Rs.50,000)",
+              "Mid-Range (Rs.50,000 - Rs.80,000)",
+              "Luxury Travel (> Rs.80,000)",
             ].map((pkg, index) => (
               <li
                 key={index}
@@ -147,7 +147,7 @@ const TiltCard = ({ destination, handleBooking }) => {
         <h3 className="text-2xl font-bold text-white mb-2">{destination.title}</h3>
         <p className="text-gray-300 mb-4">{destination.subTitle}</p>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-purple-400 font-semibold text-xl">${destination.cost}</span>
+          <span className="text-purple-400 font-semibold text-xl">Rs.{destination.cost}</span>
           <span className="text-gray-300">{destination.duration}</span>
         </div>
         <div className="flex justify-between items-center text-gray-300 mb-6">
