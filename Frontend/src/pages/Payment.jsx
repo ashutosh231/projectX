@@ -71,7 +71,7 @@ export default function PaymentPage() {
           hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 active:scale-95"
           onClick={handlePayment}
         >
-          <FaCheckCircle className="text-white text-xl" /> Pay Now
+          <FaCheckCircle className="text-white text-xl cursor-pointer" /> Pay Now
         </button>
       </div>
     </div>

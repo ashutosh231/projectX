@@ -3,7 +3,7 @@ import { FaUserCircle } from "react-icons/fa";
 export default function Testimonials() {
   const testimonials = [
     {
-      name: "Priyanka Sharma",
+      name: "Shambhu",
       role: "Full Stack Developer",
       feedback:
         "This platform made my trip planning so easy! Everything was smooth and hassle-free.",

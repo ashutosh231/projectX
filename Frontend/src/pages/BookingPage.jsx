@@ -143,7 +143,7 @@ export default function BookingPage() {
 
           <button
             className={`py-4 px-6 text-white font-bold text-lg rounded-full shadow-lg transition-all hover:scale-105
-              ${selectedDestination && selectedAccommodation ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700" : "bg-gray-400 cursor-not-allowed"}`}
+              ${selectedDestination && selectedAccommodation ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700" : "bg-gray-400 cursor-pointer"}`}
             disabled={!selectedDestination || !selectedAccommodation}
             onClick={() => navigate("/payment")}
           >
