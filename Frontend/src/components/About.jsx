@@ -3,7 +3,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-l from-gray-900 via-black to-gray-900 text-white">
+    <section id="about" className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white  ">
       <div className="container mx-auto px-6 text-center space-y-6 flex-grow">
         <h2 className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">
           About Us 🌍

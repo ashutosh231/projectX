@@ -23,7 +23,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
+    <section id="testimonials" className="py-20 bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white  ">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-white glow-text">Happy Customers</h2>
         <p className="text-gray-300 mt-2 text-lg">See what our users have to say about us.</p>

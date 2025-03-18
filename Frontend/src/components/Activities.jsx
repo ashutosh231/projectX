@@ -3,7 +3,7 @@ import activitiesData from '../data/Activities'; // Import the data
 
 export default function Activities() {
   return (
-    <section id="activities" className="py-20 bg-black text-white">
+    <section id="activities" className="py-20 bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white ">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
           Activities

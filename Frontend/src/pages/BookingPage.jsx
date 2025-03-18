@@ -30,7 +30,7 @@ export default function BookingPage() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <div className="flex flex-col min-h-screen bg-white text-black">
       <div className="flex-grow flex flex-col items-center p-6">
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Destination Section */}

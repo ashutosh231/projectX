@@ -37,12 +37,12 @@ export default function Hero() {
 
   const handleSearch = () => {
     if (destination.trim()) {
-      navigate(`/search?destination=${encodeURIComponent(destination)}`);
+      navigate(`/recommend`);
     }
   };
 
   return (
-    <section className="relative w-full h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white overflow-hidden">
+    <section className="relative w-full h-screen flex flex-col md:flex-row items-center justify-between bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white overflow-hidden">
       {/* Left Section (Search) */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-start text-left p-12 space-y-6 animate-fade-in">
         {/* Typing Effect for Heading */}

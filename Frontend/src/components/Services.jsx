@@ -61,7 +61,7 @@ export default function Services() {
   }, [index, isDeleting]);
 
   return (
-    <section id="services" className="py-12 bg-gradient-to-r from-gray-900 via-black to-gray-900 px-6">
+    <section id="services" className="py-12 bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white  px-6">
       <div className="text-center mb-8">
         {/* Typing Effect for Heading */}
         <h2 className="text-4xl font-extrabold text-white">

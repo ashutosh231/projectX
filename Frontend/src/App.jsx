@@ -18,7 +18,10 @@ import BookingPage from "./pages/BookingPage";
 import DestinationBooking from "./pages/DestinationBooking";
 import AccommodationBooking from "./pages/AccommodationBooking";
 import Payment from "./pages/Payment";
-import AuthPage from "./pages/AuthPage";
+import  Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import paymentOption from "./components/paymentOption";
+
 
 function ScrollRevealEffect() {
   const location = useLocation(); // Detects route changes
@@ -82,7 +85,7 @@ function App() {
           {/* Individual Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/recommend" element={<Recommend />} />
-          <Route path="/login" element={<AuthPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/accommodation" element={<Accommodation />} />
           <Route path="/travel-tips" element={<TravelTips />} />
@@ -90,6 +93,8 @@ function App() {
           <Route path="/select-destination" element={<DestinationBooking />} />
           <Route path="/select-accommodation" element={<AccommodationBooking />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/paymentOption" element={<paymentOption/>}/>
+          <Route path="/signup" element={<SignUp/>} />
         </Routes>
         <Footer />
       </div>

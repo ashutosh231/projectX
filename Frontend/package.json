@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",
-    "framer-motion": "^12.4.2",
+    "framer-motion": "^12.5.0",
     "parallax": "^0.0.0",
+    "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-datepicker": "^8.1.0",
     "react-dom": "^19.0.0",

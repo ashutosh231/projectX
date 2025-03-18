@@ -243,7 +243,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <nav className="relative flex justify-between items-center px-6 py-4 bg-gradient-to-r from-gray-900 via-black to-gray-900 text-white shadow-lg border-b border-gray-700 z-50">
+      <nav className="relative flex justify-between items-center px-6 py-4 bg-gradient-to-r form-bg-gray-900 via-black to bg-gray-900 text-white shadow-lg border-b border-gray-700 z-50">
         <div className="flex items-center gap-4">
           <Link to="/" className="text-2xl font-bold uppercase tracking-wide">
             Tour
