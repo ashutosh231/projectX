@@ -5,7 +5,7 @@ export const accommodations = [
     subTitle: "Enjoy a luxurious stay in our over-water villas with stunning views of the turquoise waters.",
     location: "Maldives",
     description: "Relax in a private villa with direct access to the ocean, world-class dining, and spa treatments.",
-    cost: "350",
+    cost: "3499",
     duration: "3 nights",
     distance: "6,500 km",
     rating: 4.8,
@@ -17,7 +17,7 @@ export const accommodations = [
     subTitle: "Escape to the Swiss Alps for a cozy, nature-filled retreat with breathtaking views.",
     location: "Swiss Alps",
     description: "A cozy wooden lodge surrounded by snow-capped peaks, perfect for skiing and relaxation.",
-    cost: "500",
+    cost: "4999",
     duration: "5 nights",
     distance: "7,200 km",
     rating: 4.9,
@@ -29,7 +29,7 @@ export const accommodations = [
     subTitle: "Experience the vibrant life of New York City with a stay in a centrally located modern hotel.",
     location: "New York, USA",
     description: "Located in the heart of Manhattan, this hotel offers easy access to Times Square, Broadway, and shopping districts.",
-    cost: "250",
+    cost: "6999",
     duration: "2 nights",
     distance: "4,800 km",
     rating: 4.7,
@@ -41,7 +41,7 @@ export const accommodations = [
     subTitle: "A peaceful countryside cottage with a cozy atmosphere, perfect for a quiet escape.",
     location: "Tuscany, Italy",
     description: "A charming stone cottage surrounded by rolling vineyards and olive groves, ideal for a tranquil getaway.",
-    cost: "180",
+    cost: "4499",
     duration: "4 nights",
     distance: "3,900 km",
     rating: 4.6,
@@ -53,10 +53,11 @@ export const accommodations = [
     subTitle: "Stay at a luxury desert lodge surrounded by golden sand dunes and enjoy a unique desert experience.",
     location: "Dubai, UAE",
     description: "An exclusive resort in the Arabian Desert offering camel rides, dune bashing, and traditional Bedouin-style stays.",
-    cost: "450",
+    cost: "4499",
     duration: "3 nights",
     distance: "5,200 km",
     rating: 4.8,
     reviews: 270
   }
 ];
+

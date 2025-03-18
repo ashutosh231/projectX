@@ -1,63 +1,147 @@
 export const destinations = [
-    {
-      image: "https://cdn.britannica.com/17/83817-050-67C814CD/Mount-Everest.jpg",
-      title: "Mount Everest",
-      subTitle: "Experience the breathtaking beauty of the world's highest peak.",
-      cost: "75000",
-      duration: "5 nights",
-      distance: "3,500 km",
-      rating: 4.9,
-      reviews: 320
-    },
-    {
-      image: "https://www.shutterstock.com/image-photo/jaguar-on-patrol-hunt-food-600nw-2437844757.jpg",
-      title: "Amazon Rainforest",
-      subTitle: "Explore the lush and dense wilderness with exotic wildlife.",
-      cost: "60500",
-      duration: "4 nights",
-      distance: "4,200 km",
-      rating: 4.7,
-      reviews: 250
-    },
-    {
-      image: "https://www.thoughtco.com/thmb/l0Ei2qSYEp6vtU6a1o0FtphhV4s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SaharaDesert-58c1a5603df78c353c3d525d.jpg",
-      title: "Sahara Desert",
-      subTitle: "Witness the vast golden dunes and the stunning desert landscapes.",
-      cost: "45000",
-      duration: "3 nights",
-      distance: "2,800 km",
-      rating: 4.6,
-      reviews: 190
-    },
-    {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8PbT66cTf7eSO9iylaXXHDbis0U6KGWQ7vw&s",
-      title: "Great Barrier Reef",
-      subTitle: "Dive into the world's largest coral reef system.",
-      cost: "90000",
-      duration: "5 nights",
-      distance: "8,000 km",
-      rating: 4.8,
-      reviews: 280
-    },
-    {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDO5HT08XYSvimImIzObLa-YQUKNgyFP_AXA&s",
-      title: "Swiss Alps",
-      subTitle: "Enjoy the breathtaking winter landscape and scenic views.",
-      cost: "85000",
-      duration: "6 nights",
-      distance: "5,500 km",
-      rating: 4.9,
-      reviews: 400
-    },
-    {
-      image: "https://npf-prod.imgix.net/uploads/shutterstock_97706066_1.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=900&q=80&w=1600",
-      title: "Grand Canyon",
-      subTitle: "Marvel at the stunning natural rock formations and sunset views.",
-      cost: "50000",
-      duration: "4 nights",
-      distance: "3,000 km",
-      rating: 4.8,
-      reviews: 310
-    }
-  ];
+  {
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Taj_Mahal_in_March_2004.jpg",
+    title: "Taj Mahal",
+    subTitle: "A symbol of eternal love, the Taj Mahal is an architectural marvel located in India.",
+    location: "Agra, India",
+    description: "This magnificent white marble mausoleum was built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
+    cost: "9999",
+    duration: "2 hours",
+    distance: "8,000 km",
+    rating: 4.9,
+    reviews: 5500
+  },
+  {
+    image: "https://media.istockphoto.com/id/1194899511/photo/colosseum-in-rome-without-people-in-the-morning-italy.jpg?s=612x612&w=0&k=20&c=t1TYR4w0XZBedjp7riLCQBNoYPpN49TXJKX500B3Hmg=",
+    title: "Colosseum",
+    subTitle: "Explore the grand Colosseum, one of the most iconic landmarks of Ancient Rome.",
+    location: "Rome, Italy",
+    description: "The Colosseum is a Roman amphitheatre known for gladiatorial contests and public spectacles.",
+    cost: "199999",
+    duration: "2-3 hours",
+    distance: "1,000 km",
+    rating: 4.8,
+    reviews: 4200
+  },
+  {
+    image: "https://www.planetware.com/photos-large/F/eiffel-tower.jpg",
+    title: "Eiffel Tower",
+    subTitle: "The Eiffel Tower is an iconic symbol of Paris and a must-see landmark in France.",
+    location: "Paris, France",
+    description: "A wrought-iron lattice tower located on the Champ de Mars, offering breathtaking views of the city.",
+    cost: "24999",
+    duration: "1-2 hours",
+    distance: "6,000 km",
+    rating: 4.7,
+    reviews: 7100
+  },
+  {
+    image: "https://images.pexels.com/photos/1423580/pexels-photo-1423580.jpeg?cs=srgb&dl=pexels-jplenio-1423580.jpg&fm=jpg",
+    title: "Great Wall of China",
+    subTitle: "One of the Seven Wonders of the World, the Great Wall stretches across northern China.",
+    location: "Beijing, China",
+    description: "This ancient fortification was built to protect Chinese states from invasions and is a UNESCO World Heritage Site.",
+    cost: "499999",
+    duration: "2-3 hours",
+    distance: "7,500 km",
+    rating: 4.9,
+    reviews: 8000
+  },
+  {
+    image: "https://media.cntraveler.com/photos/58629e8e440f8ba323b9bbea/16:9/w_2560%2Cc_limit/christ-the-redeemer-statue-rio-cr-GettyImages-523194487.jpg",
+    title: "Christ the Redeemer",
+    subTitle: "An iconic statue overlooking the city of Rio de Janeiro, Brazil.",
+    location: "Rio de Janeiro, Brazil",
+    description: "This towering statue of Jesus Christ is one of the New Seven Wonders of the World and offers stunning views of the city.",
+    cost: "199999",
+    duration: "1 hour",
+    distance: "9,000 km",
+    rating: 4.8,
+    reviews: 3200
+  },
+  {
+    image: "https://media.istockphoto.com/id/104353716/photo/athens-acropolis-parthenon.jpg?s=612x612&w=0&k=20&c=nWiosp3SGW39MILHPYku3PAzQG6OxfXCZ_G16gHcEuU=",
+    title: "Acropolis of Athens",
+    subTitle: "A historical site in Athens, Greece, home to ancient temples, including the Parthenon.",
+    location: "Athens, Greece",
+    description: "The Acropolis is a symbol of classical spirit and civilization and is one of the most important ancient monuments in Europe.",
+    cost: "24999",
+    duration: "2 hours",
+    distance: "2,000 km",
+    rating: 4.7,
+    reviews: 4500
+  },
+  {
+    image: "https://media.istockphoto.com/id/537243905/photo/el-castillo-pyramid-in-chichen-itza-yucatan-mexico.jpg?s=612x612&w=0&k=20&c=R91kp2RzLmZU0rnP769r6yyxSDWarYWdJXqpWtXbvvg=",
+    title: "Chichen Itza",
+    subTitle: "A mystical ancient Mayan city with impressive pyramids and temples.",
+    location: "Yucatan, Mexico",
+    description: "Chichen Itza is one of the New Seven Wonders of the World and a UNESCO World Heritage Site with rich cultural history.",
+    cost: "199999",
+    duration: "2-3 hours",
+    distance: "11,000 km",
+    rating: 4.9,
+    reviews: 6000
+  },
+  {
+    image: "https://media.istockphoto.com/id/1330026475/photo/ad-deir-monastery-ruins-carved-in-rocky-wall-at-petra-jordan.jpg?s=612x612&w=0&k=20&c=lOBvDYBQEghodAiEX-kOGlprmDARyRyCN4iJeBTwYN0=",
+    title: "Petra",
+    subTitle: "An ancient city carved into the rose-red sandstone cliffs in Jordan.",
+    location: "Petra, Jordan",
+    description: "Known as the 'Rose City,' Petra is famous for its rock-cut architecture and water conduit system, and it is a UNESCO World Heritage Site.",
+    cost: "150000",
+    duration: "3 hours",
+    distance: "5,000 km",
+    rating: 4.9,
+    reviews: 4500
+  },
+  {
+    image: "https://media.istockphoto.com/id/502617555/photo/world-heritage-mount-fuji-and-lake-shoji.jpg?s=612x612&w=0&k=20&c=1aA-Z53dHEqc59HBiIwKJnQUKBX69BKa5dCU3E3Ck8w=",
+    title: "Mount Fuji",
+    subTitle: "The iconic mountain of Japan, known for its beauty and spiritual significance.",
+    location: "Honshu, Japan",
+    description: "Mount Fuji is a dormant volcano and one of Japan's most recognizable landmarks, attracting hikers and tourists year-round.",
+    cost: "500000",
+    duration: "Varies",
+    distance: "11,000 km",
+    rating: 4.8,
+    reviews: 5300
+  },
+  {
+    image: "https://images4.alphacoders.com/743/743533.jpg",
+    title: "Sydney Opera House",
+    subTitle: "An iconic performance venue in Sydney, Australia, with stunning architectural design.",
+    location: "Sydney, Australia",
+    description: "The Sydney Opera House is one of the busiest performing arts venues in the world, famous for its unique shell-like design.",
+    cost: "40000",
+    duration: "1-2 hours",
+    distance: "16,000 km",
+    rating: 4.8,
+    reviews: 6800
+  },
+  {
+    image: "https://media.istockphoto.com/id/135034702/photo/arc-de-triomphe-paris.webp?a=1&b=1&s=612x612&w=0&k=20&c=O9M83OsB9qBZYnrD4ACx0VVRroIs-pj59wiDt9MnLx0=",
+    title: "Champs-Élysées",
+    subTitle: "A historic avenue in Paris, known for its shops, theatres, and cafes.",
+    location: "Paris, France",
+    description: "The Champs-Élysées is one of the most famous avenues in the world, stretching from Place de la Concorde to the Arc de Triomphe.",
+    cost: "75000",
+    duration: "1-2 hours",
+    distance: "6,000 km",
+    rating: 4.7,
+    reviews: 5000
+  },
+  {
+    image: "https://media.istockphoto.com/id/1644788256/photo/sunrise-at-the-angkor-wat-temple-in-cambodia.webp?a=1&b=1&s=612x612&w=0&k=20&c=yQ2iSqwuMSVjPhNc8yCPn0V2hmfympcEt4qDs2N_K1o=",
+    title: "Angkor Wat",
+    subTitle: "A vast temple complex and one of the largest religious monuments in the world.",
+    location: "Siem Reap, Cambodia",
+    description: "Angkor Wat is a UNESCO World Heritage Site and the largest religious monument, originally dedicated to the Hindu god Vishnu.",
+    cost: "300000",
+    duration: "3-4 hours",
+    distance: "12,000 km",
+    rating: 4.9,
+    reviews: 7000
+  },
   
+];

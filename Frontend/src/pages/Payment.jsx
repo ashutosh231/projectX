@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaCreditCard, FaCheckCircle } from "react-icons/fa";
+import { FaCreditCard, FaCheckCircle, FaMapMarkerAlt, FaHotel, FaMoneyBillWave } from 'react-icons/fa';
 
 export default function PaymentPage() {
   const navigate = useNavigate();
@@ -29,51 +29,50 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6">
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-10 transform transition-all duration-500 hover:scale-105">
-        <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-6 flex items-center justify-center gap-3">
-          <FaCreditCard className="text-blue-600 text-5xl" /> Review & Pay
+    <div className="flex justify-center items-center min-h-screen bg-richblack-900 text-white p-6">
+      <div className="w-full max-w-3xl bg-gray-900 text-white rounded-3xl shadow-lg p-10 border border-gray-700">
+        
+        <h2 className="text-4xl font-extrabold text-center mb-6 flex items-center justify-center gap-3">
+          <FaCreditCard className="text-blue-400 text-5xl" /> Review & Pay
         </h2>
-
-        {/* Destination Details */}
+  
         {selectedDestination && (
-          <div className="mb-6 p-6 border-l-[6px] border-blue-500 rounded-2xl shadow-lg bg-gradient-to-r from-gray-100 to-gray-200">
-            <h3 className="text-2xl font-bold text-gray-800 flex items-center gap-2">📍 Destination</h3>
-            <p className="text-lg text-gray-700 font-semibold">{selectedDestination.title}</p>
-            <p className="text-sm text-gray-600 italic">{selectedDestination.location}</p>
+          <div className="mb-6 p-6 border-l-4 border-blue-400 rounded-xl bg-gray-800">
+            <h3 className="text-2xl font-bold text-blue-300 flex items-center gap-2">
+              <FaMapMarkerAlt /> Destination
+            </h3>
+            <p className="text-lg text-gray-300 font-semibold">{selectedDestination.title}</p>
+            <p className="text-sm text-gray-400 italic">{selectedDestination.location}</p>
           </div>
         )}
-
-        {/* Accommodation Details */}
+  
         {selectedAccommodation && (
-          <div className="mb-6 p-6 border-l-[6px] border-green-500 rounded-2xl shadow-lg bg-gradient-to-r from-gray-100 to-gray-200">
-            <h3 className="text-2xl font-bold text-gray-800 flex items-center gap-2">🏨 Accommodation</h3>
-            <p className="text-lg text-gray-700 font-semibold">{selectedAccommodation.title}</p>
-            <p className="text-sm text-gray-600 italic">{selectedAccommodation.location}</p>
-            <p className="text-md text-gray-800 font-semibold">
-              Per Night Cost: <span className="text-blue-600 font-bold">${selectedAccommodation.cost}</span>
-            </p>
-            <p className="text-md text-gray-800 font-semibold">
-              Nights: <span className="text-green-600 font-bold">{numNights}</span>
-            </p>
+          <div className="mb-6 p-6 border-l-4 border-green-400 rounded-xl bg-gray-800">
+            <h3 className="text-2xl font-bold text-green-300 flex items-center gap-2">
+              <FaHotel /> Accommodation
+            </h3>
+            <p className="text-lg text-gray-300 font-semibold">{selectedAccommodation.title}</p>
+            <p className="text-sm text-gray-400 italic">{selectedAccommodation.location}</p>
+            <p className="text-md text-gray-300 font-semibold">Per Night Cost: <span className="text-blue-400 font-bold">${selectedAccommodation.cost}</span></p>
+            <p className="text-md text-gray-300 font-semibold">Nights: <span className="text-green-400 font-bold">{numNights}</span></p>
           </div>
         )}
-
-        {/* Total Cost */}
-        <div className="mb-6 p-6 border-l-[6px] border-red-500 rounded-2xl shadow-lg bg-gradient-to-r from-gray-100 to-gray-200">
-          <h3 className="text-2xl font-bold text-gray-800 flex items-center gap-2">💰 Total Cost</h3>
-          <p className="text-4xl font-extrabold text-red-600 drop-shadow-md">${totalCost.toFixed(2)}</p>
+  
+        <div className="mb-6 p-6 border-l-4 border-red-500 rounded-xl bg-gray-800">
+          <h3 className="text-2xl font-bold text-red-400 flex items-center gap-2">
+            <FaMoneyBillWave /> Total Cost
+          </h3>
+          <p className="text-4xl font-extrabold text-red-400">${totalCost.toFixed(2)}</p>
         </div>
-
-        {/* Payment Button */}
+  
         <button
-          className="w-full py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold text-lg rounded-full shadow-lg flex items-center justify-center gap-3 
-          hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 active:scale-95"
+          className="w-full py-3 bg-blue-600 text-white font-bold text-lg rounded-lg shadow-md flex items-center justify-center gap-3 hover:bg-blue-500 transition-all"
           onClick={handlePayment}
         >
-          <FaCheckCircle className="text-white text-xl cursor-pointer" /> Pay Now
+          <FaCheckCircle className="text-white text-xl" /> Pay Now
         </button>
       </div>
     </div>
   );
 }
+

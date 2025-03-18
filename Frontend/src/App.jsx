@@ -20,51 +20,52 @@ import AccommodationBooking from "./pages/AccommodationBooking";
 import Payment from "./pages/Payment";
 import  Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import paymentOption from "./components/paymentOption";
+import PaymentOption from "./pages/PaymentOption";
+import Success from "./pages/PaymentSuccess";
 
 
-function ScrollRevealEffect() {
-  const location = useLocation(); // Detects route changes
+// function ScrollRevealEffect() {
+//   const location = useLocation(); // Detects route changes
 
-  useEffect(() => {
-    const sr = scrollreveal({
-      origin: "top",
-      distance: "90px",
-      duration: 800, // Smooth transition
-      reset: false, // Prevents repeated resets
-    });
+//   useEffect(() => {
+//     const sr = scrollreveal({
+//       origin: "top",
+//       distance: "90px",
+//       duration: 800, // Smooth transition
+//       reset: false, // Prevents repeated resets
+//     });
 
-    sr.reveal(
-      `
-        nav,
-        #hero,
-        #services,
-        #recommend,
-        #testimonials,
-        #about,
-        #activities,
-        #accommodation,
-        #travel-tips,
-        footer
-      `,
-      {
-        opacity: 0,
-        interval: 150, // Smooth staggered reveal
-      }
-    );
+//     sr.reveal(
+//       `
+//         nav,
+//         #hero,
+//         #services,
+//         #recommend,
+//         #testimonials,
+//         #about,
+//         #activities,
+//         #accommodation,
+//         #travel-tips,
+//         footer
+//       `,
+//       {
+//         opacity: 0,
+//         interval: 150, // Smooth staggered reveal
+//       }
+//     );
 
-    return () => {
-      sr.destroy();
-    };
-  }, [location]); // Runs when the route changes
+//     return () => {
+//       sr.destroy();
+//     };
+//   }, [location]); // Runs when the route changes
 
-  return null;
-}
+//   return null;
+// }
 
 function App() {
   return (
     <Router>
-      <ScrollRevealEffect />
+      {/* <ScrollRevealEffect /> */}
       <div className="font-sans scroll-smooth bg-black">
         <ScrollToTop />
         <Navbar />
@@ -93,8 +94,9 @@ function App() {
           <Route path="/select-destination" element={<DestinationBooking />} />
           <Route path="/select-accommodation" element={<AccommodationBooking />} />
           <Route path="/payment" element={<Payment />} />
-          <Route path="/paymentOption" element={<paymentOption/>}/>
+          <Route path="/paymentOption" element={<PaymentOption/>}/>
           <Route path="/signup" element={<SignUp/>} />
+          <Route path="/success" element={<Success/>}/>
         </Routes>
         <Footer />
       </div>

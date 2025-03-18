@@ -30,7 +30,7 @@ export default function BookingPage() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-black">
+    <div className="flex flex-col min-h-screen bg-richbalck-900 text-white">
       <div className="flex-grow flex flex-col items-center p-6">
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Destination Section */}
@@ -52,7 +52,7 @@ export default function BookingPage() {
                 <p className="text-lg text-gray-200"><strong>Location:</strong> {selectedDestination?.location || "Not Available"}</p>
                 <p className="text-gray-300"><strong>Description:</strong> {selectedDestination?.description || "No description provided"}</p>
                 <p className="text-xl font-bold text-green-400 mt-2">
-                  {selectedDestination?.cost ? `$${selectedDestination.cost}` : "Price not available"}
+                  {selectedDestination?.cost ? `Rs.${selectedDestination.cost}` : "Price not available"}
                 </p>
               </>
             ) : (
@@ -108,7 +108,7 @@ export default function BookingPage() {
 
                 <p className="text-lg text-gray-200 mt-4"><strong>Number of Nights:</strong> {numNights}</p>
                 <p className="text-2xl font-bold text-green-400 mt-4">
-                  Total Cost: ${selectedAccommodation?.cost ? (selectedAccommodation.cost * numNights).toFixed(2) : "Price not available"}
+                  Total Cost:  Rs.{selectedAccommodation?.cost ? (selectedAccommodation.cost * numNights).toFixed(2) : "Price not available"}
                 </p>
               </>
             ) : (
