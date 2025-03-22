@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,13 +10,35 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSignup = () => {
+  
+  const handleSignup = async () => {
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
-    console.log('Signing up with:', name, email, password);
+  
+    try {
+      const response = await fetch("http://localhost/Tour-Planner/backend/signup.php",
+        {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+  
+      const result = await response.json();
+      if (result.success) {
+        alert(result.message);
+        navigate("/login");
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
+  
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-richblack-900 to-richblack-800 p-6">
@@ -51,8 +74,8 @@ const Signup = () => {
             <button 
               type="button" 
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-purple-400 hover:text-purple-600 transition duration-300" 
-              onClick={() => setShowPassword(!showPassword)}
-            >
+              onClick={() => setShowPassword(!showPassword)}>
+
               {showPassword ? '🙈' : '👁️'}
             </button>
           </div>
