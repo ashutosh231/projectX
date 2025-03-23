@@ -1,40 +1,5 @@
+
 export const destinations = [
-  {
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Taj_Mahal_in_March_2004.jpg",
-    title: "Taj Mahal",
-    subTitle: "A symbol of eternal love, the Taj Mahal is an architectural marvel located in India.",
-    location: "Agra, India",
-    description: "This magnificent white marble mausoleum was built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
-    cost: "9999",
-    duration: "2 hours",
-    distance: "8,000 km",
-    rating: 4.9,
-    reviews: 5500
-  },
-  {
-    image: "https://media.istockphoto.com/id/1194899511/photo/colosseum-in-rome-without-people-in-the-morning-italy.jpg?s=612x612&w=0&k=20&c=t1TYR4w0XZBedjp7riLCQBNoYPpN49TXJKX500B3Hmg=",
-    title: "Colosseum",
-    subTitle: "Explore the grand Colosseum, one of the most iconic landmarks of Ancient Rome.",
-    location: "Rome, Italy",
-    description: "The Colosseum is a Roman amphitheatre known for gladiatorial contests and public spectacles.",
-    cost: "199999",
-    duration: "2-3 hours",
-    distance: "1,000 km",
-    rating: 4.8,
-    reviews: 4200
-  },
-  {
-    image: "https://www.planetware.com/photos-large/F/eiffel-tower.jpg",
-    title: "Eiffel Tower",
-    subTitle: "The Eiffel Tower is an iconic symbol of Paris and a must-see landmark in France.",
-    location: "Paris, France",
-    description: "A wrought-iron lattice tower located on the Champ de Mars, offering breathtaking views of the city.",
-    cost: "24999",
-    duration: "1-2 hours",
-    distance: "6,000 km",
-    rating: 4.7,
-    reviews: 7100
-  },
   {
     image: "https://images.pexels.com/photos/1423580/pexels-photo-1423580.jpeg?cs=srgb&dl=pexels-jplenio-1423580.jpg&fm=jpg",
     title: "Great Wall of China",
@@ -46,66 +11,6 @@ export const destinations = [
     distance: "7,500 km",
     rating: 4.9,
     reviews: 8000
-  },
-  {
-    image: "https://media.cntraveler.com/photos/58629e8e440f8ba323b9bbea/16:9/w_2560%2Cc_limit/christ-the-redeemer-statue-rio-cr-GettyImages-523194487.jpg",
-    title: "Christ the Redeemer",
-    subTitle: "An iconic statue overlooking the city of Rio de Janeiro, Brazil.",
-    location: "Rio de Janeiro, Brazil",
-    description: "This towering statue of Jesus Christ is one of the New Seven Wonders of the World and offers stunning views of the city.",
-    cost: "199999",
-    duration: "1 hour",
-    distance: "9,000 km",
-    rating: 4.8,
-    reviews: 3200
-  },
-  {
-    image: "https://media.istockphoto.com/id/104353716/photo/athens-acropolis-parthenon.jpg?s=612x612&w=0&k=20&c=nWiosp3SGW39MILHPYku3PAzQG6OxfXCZ_G16gHcEuU=",
-    title: "Acropolis of Athens",
-    subTitle: "A historical site in Athens, Greece, home to ancient temples, including the Parthenon.",
-    location: "Athens, Greece",
-    description: "The Acropolis is a symbol of classical spirit and civilization and is one of the most important ancient monuments in Europe.",
-    cost: "24999",
-    duration: "2 hours",
-    distance: "2,000 km",
-    rating: 4.7,
-    reviews: 4500
-  },
-  {
-    image: "https://media.istockphoto.com/id/537243905/photo/el-castillo-pyramid-in-chichen-itza-yucatan-mexico.jpg?s=612x612&w=0&k=20&c=R91kp2RzLmZU0rnP769r6yyxSDWarYWdJXqpWtXbvvg=",
-    title: "Chichen Itza",
-    subTitle: "A mystical ancient Mayan city with impressive pyramids and temples.",
-    location: "Yucatan, Mexico",
-    description: "Chichen Itza is one of the New Seven Wonders of the World and a UNESCO World Heritage Site with rich cultural history.",
-    cost: "199999",
-    duration: "2-3 hours",
-    distance: "11,000 km",
-    rating: 4.9,
-    reviews: 6000
-  },
-  {
-    image: "https://media.istockphoto.com/id/1330026475/photo/ad-deir-monastery-ruins-carved-in-rocky-wall-at-petra-jordan.jpg?s=612x612&w=0&k=20&c=lOBvDYBQEghodAiEX-kOGlprmDARyRyCN4iJeBTwYN0=",
-    title: "Petra",
-    subTitle: "An ancient city carved into the rose-red sandstone cliffs in Jordan.",
-    location: "Petra, Jordan",
-    description: "Known as the 'Rose City,' Petra is famous for its rock-cut architecture and water conduit system, and it is a UNESCO World Heritage Site.",
-    cost: "150000",
-    duration: "3 hours",
-    distance: "5,000 km",
-    rating: 4.9,
-    reviews: 4500
-  },
-  {
-    image: "https://media.istockphoto.com/id/502617555/photo/world-heritage-mount-fuji-and-lake-shoji.jpg?s=612x612&w=0&k=20&c=1aA-Z53dHEqc59HBiIwKJnQUKBX69BKa5dCU3E3Ck8w=",
-    title: "Mount Fuji",
-    subTitle: "The iconic mountain of Japan, known for its beauty and spiritual significance.",
-    location: "Honshu, Japan",
-    description: "Mount Fuji is a dormant volcano and one of Japan's most recognizable landmarks, attracting hikers and tourists year-round.",
-    cost: "500000",
-    duration: "Varies",
-    distance: "11,000 km",
-    rating: 4.8,
-    reviews: 5300
   },
   {
     image: "https://images4.alphacoders.com/743/743533.jpg",
@@ -120,28 +25,97 @@ export const destinations = [
     reviews: 6800
   },
   {
-    image: "https://media.istockphoto.com/id/135034702/photo/arc-de-triomphe-paris.webp?a=1&b=1&s=612x612&w=0&k=20&c=O9M83OsB9qBZYnrD4ACx0VVRroIs-pj59wiDt9MnLx0=",
-    title: "Champs-Élysées",
-    subTitle: "A historic avenue in Paris, known for its shops, theatres, and cafes.",
-    location: "Paris, France",
-    description: "The Champs-Élysées is one of the most famous avenues in the world, stretching from Place de la Concorde to the Arc de Triomphe.",
-    cost: "75000",
-    duration: "1-2 hours",
-    distance: "6,000 km",
-    rating: 4.7,
-    reviews: 5000
+    image: "https://images.pexels.com/photos/30638768/pexels-photo-30638768/free-photo-of-taj-mahal-at-sunrise-iconic-indian-landmark.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    title: "Taj Mahal",
+    subTitle: "A symbol of eternal love, the Taj Mahal is an architectural marvel located in India.",
+    location: "Agra, India",
+    description: "This magnificent white marble mausoleum was built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
+    cost: "9999",
+    duration: "2 hours",
+    distance: "8,000 km",
+    rating: 4.9,
+    reviews: 5500
   },
   {
-    image: "https://media.istockphoto.com/id/1644788256/photo/sunrise-at-the-angkor-wat-temple-in-cambodia.webp?a=1&b=1&s=612x612&w=0&k=20&c=yQ2iSqwuMSVjPhNc8yCPn0V2hmfympcEt4qDs2N_K1o=",
-    title: "Angkor Wat",
-    subTitle: "A vast temple complex and one of the largest religious monuments in the world.",
-    location: "Siem Reap, Cambodia",
-    description: "Angkor Wat is a UNESCO World Heritage Site and the largest religious monument, originally dedicated to the Hindu god Vishnu.",
-    cost: "300000",
-    duration: "3-4 hours",
-    distance: "12,000 km",
+    image: "https://images.unsplash.com/photo-1648351152045-9e3e12fdc74e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Manali",
+    subTitle: "A paradise for nature lovers, Manali is a beautiful hill station in Himachal Pradesh.",
+    location: "Himachal Pradesh, India",
+    description: "Manali is famous for its breathtaking landscapes, adventure sports, and vibrant culture.",
+    cost: "14999",
+    duration: "3 days",
+    distance: "500 km",
+    rating: 4.8,
+    reviews: 4800
+  },
+  {
+    image: "https://images.unsplash.com/photo-1589564972271-05f2cf7e772f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Shimla",
+    subTitle: "The Queen of Hills, Shimla is a charming colonial town in Himachal Pradesh.",
+    location: "Himachal Pradesh, India",
+    description: "Shimla is known for its scenic beauty, Mall Road, Ridge, and colonial architecture.",
+    cost: "12999",
+    duration: "3 days",
+    distance: "400 km",
+    rating: 4.7,
+    reviews: 4600
+  },
+  {
+    image: "https://plus.unsplash.com/premium_photo-1697730288821-62c119fb7c5d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Jaipur",
+    subTitle: "The Pink City, Jaipur is a blend of royal heritage and vibrant culture.",
+    location: "Rajasthan, India",
+    description: "Jaipur is home to magnificent palaces, forts, and bustling markets, making it a must-visit destination.",
+    cost: "15999",
+    duration: "2 days",
+    distance: "300 km",
+    rating: 4.8,
+    reviews: 5200
+  },
+  {
+    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Goa",
+    subTitle: "The land of sun, sand, and sea, Goa is India's party capital.",
+    location: "Goa, India",
+    description: "Goa offers stunning beaches, vibrant nightlife, water sports, and delicious seafood.",
+    cost: "19999",
+    duration: "4 days",
+    distance: "600 km",
     rating: 4.9,
     reviews: 7000
   },
-  
+  {
+    image: "https://5.imimg.com/data5/KR/DI/GLADMIN-1328857/4-day-kerala-backwater-tour-in-alleppey.png",
+    title: "Kerala Backwaters",
+    subTitle: "Experience serenity in the lush green backwaters of Kerala.",
+    location: "Kerala, India",
+    description: "The Kerala backwaters are a network of serene lakes, canals, and rivers with picturesque houseboats.",
+    cost: "24999",
+    duration: "3 days",
+    distance: "1200 km",
+    rating: 4.8,
+    reviews: 4800
+  },
+  {
+    image: "https://images.pexels.com/photos/28819289/pexels-photo-28819289/free-photo-of-ganga-aarti-ceremony-in-varanasi-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    title: "Varanasi",
+    subTitle: "One of the oldest cities in the world, Varanasi is a spiritual hub of India.",
+    location: "Uttar Pradesh, India",
+    description: "Varanasi is known for its ghats, temples, and spiritual significance, making it a must-visit for seekers.",
+    cost: "12999",
+    duration: "2 days",
+    distance: "700 km",
+    rating: 4.7,
+    reviews: 4500
+  }
 ];
+
+
+
+
+
+
+
+
+
+

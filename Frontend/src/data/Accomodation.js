@@ -58,6 +58,66 @@ export const accommodations = [
     distance: "5,200 km",
     rating: 4.8,
     reviews: 270
+  },
+  // Indian Hotels
+  {
+    image: "https://www.ihcltata.com/content/dam/tajhotels/in/en/banner/outer-banner.jpg",
+    title: "The Oberoi Cecil",
+    subTitle: "A colonial-style luxury hotel in the heart of Shimla with breathtaking views of the Himalayas.",
+    location: "Shimla, India",
+    description: "Enjoy a royal stay with impeccable service, world-class dining, and a stunning mountain backdrop.",
+    cost: "5999",
+    duration: "3 nights",
+    distance: "350 km",
+    rating: 4.9,
+    reviews: 320
+  },
+  {
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/d4/98/4e/ayush-resort.jpg?w=700&h=-1&s=1",
+    title: "Manu Allaya Resort",
+    subTitle: "A luxurious retreat in Manali, offering mesmerizing views and premium amenities.",
+    location: "Manali, India",
+    description: "Experience tranquility in the lap of nature with spa treatments, fine dining, and adventure activities.",
+    cost: "5499",
+    duration: "4 nights",
+    distance: "550 km",
+    rating: 4.7,
+    reviews: 280
+  },
+  {
+    image: "https://www.tajhotels.com/content/dam/luxury/hotels/Taj_Palace_Delhi/images/homepage-carousel/04_Facade.jpg",
+    title: "Taj Mahal Palace",
+    subTitle: "A heritage hotel in Mumbai, offering world-class hospitality and iconic views of the Gateway of India.",
+    location: "Mumbai, India",
+    description: "Stay at an architectural marvel with fine dining, spa facilities, and luxurious suites.",
+    cost: "7999",
+    duration: "3 nights",
+    distance: "1,400 km",
+    rating: 4.9,
+    reviews: 500
+  },
+  {
+    image: "https://www.tajhotels.com/content/dam/luxury/hotels/UmaidBhawanPalaceJodhpur/images/gallery/Facade-of-umaid-bhawan-palace-jodhpur.jpg",
+    title: "Umaid Bhawan Palace",
+    subTitle: "Live like royalty at one of the world's most luxurious heritage hotels in Jodhpur.",
+    location: "Jodhpur, India",
+    description: "Experience grandeur with Rajput architecture, sprawling gardens, and exceptional hospitality.",
+    cost: "8999",
+    duration: "3 nights",
+    distance: "900 km",
+    rating: 5.0,
+    reviews: 450
+  },
+  {
+    image: "https://www.tajhotels.com/content/dam/luxury/hotels/TajLakePalaceUdaipur/images/gallery/Taj-Lake-Palace-Udaipur-facade.jpg",
+    title: "Taj Lake Palace",
+    subTitle: "A floating palace on Lake Pichola, offering a magical and romantic experience.",
+    location: "Udaipur, India",
+    description: "Indulge in royal luxury with boat rides, heritage suites, and stunning sunset views.",
+    cost: "9999",
+    duration: "3 nights",
+    distance: "1,200 km",
+    rating: 4.9,
+    reviews: 480
   }
 ];
-

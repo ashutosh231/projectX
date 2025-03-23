@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 // Database connection details
 $host = "localhost";  // Change if your database is hosted elsewhere
 $username = "root";   // Default XAMPP MySQL username
-$password = "";       // Default is empty in XAMPP
+$password = "Singh@801";       // Default is empty in XAMPP
 $dbname = "tour_planner";  // Change to your actual database name
 
 // Connect to the database

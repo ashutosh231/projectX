@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 // Database connection
 $host = "localhost"; // Change if necessary
 $username = "root"; // Your MySQL username
-$password = ""; // Your MySQL password
+$password = "Singh@801"; // Your MySQL password
 $database = "tour_planner"; // Change this to your actual database name
 
 $conn = new mysqli($host, $username, $password, $database);
