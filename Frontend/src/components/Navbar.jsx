@@ -52,7 +52,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full px-6 py-4 text-white bg-opacity-30 backdrop-blur-md border-b border-gray-500 shadow-lg z-50">
+    <nav className="w-full px-6 py-4 text-white bg-opacity-30 backdrop-blur-md border-b border-gray-500 shadow-lg relative z-50 ">
       <div className="flex justify-between items-center">
         <Link
           to="/"
@@ -106,7 +106,7 @@ export default function Navbar() {
               </svg>
             </button>
             {dropdownOpen && (
-              <ul className="absolute left-0 top-full mt-2 w-48 bg-white text-black rounded-md shadow-lg overflow-hidden animate-fadeIn ">
+              <ul className="absolute left-0 top-full mt-2 w-48 bg-white text-black rounded-md shadow-lg overflow-hidden animate-fadeIn z-100">
                 {Object.keys(exploreRoutes).map((item) => (
                   <li key={item}>
                     <Link

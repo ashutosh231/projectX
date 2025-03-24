@@ -1,6 +1,6 @@
 import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
-export default function Footer() {git status
+export default function Footer() {
 
   return (
     <footer className="relative bg-gray-950 text-white">
