@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
@@ -12,6 +11,22 @@ export default function BookingPage() {
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [numNights, setNumNights] = useState(1);
+  const [members, setMembers] = useState([{ name: "", age: "" }]);
+
+  const handleMemberChange = (index, field, value) => {
+    const updatedMembers = [...members];
+    updatedMembers[index][field] = value;
+    setMembers(updatedMembers);
+  };
+
+  const addMember = () => {
+    setMembers([...members, { name: "", age: "" }]);
+  };
+
+  const removeMember = (index) => {
+    const updatedMembers = members.filter((_, i) => i !== index);
+    setMembers(updatedMembers);
+  };
 
   useEffect(() => { 
     if (checkInDate && checkOutDate) {
@@ -122,6 +137,41 @@ export default function BookingPage() {
           </motion.div>
         </div>
 
+        {/* Add Members Section */}
+        <div className="mt-6">
+          <h3 className="text-xl font-bold text-white mb-4">Add Members</h3>
+          {members.map((member, index) => (
+            <div key={index} className="flex gap-4 mb-4">
+              <input
+                type="text"
+                placeholder="Name"
+                value={member.name}
+                onChange={(e) => handleMemberChange(index, "name", e.target.value)}
+                className="p-2 rounded bg-gray-900 text-white w-1/2"
+              />
+              <input
+                type="number"
+                placeholder="Age"
+                value={member.age}
+                onChange={(e) => handleMemberChange(index, "age", e.target.value)}
+                className="p-2 rounded bg-gray-900 text-white w-1/4"
+              />
+              <button
+                onClick={() => removeMember(index)}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+          <button
+            onClick={addMember}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Add Member
+          </button>
+        </div>
+
         {/* Buttons Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -145,7 +195,10 @@ export default function BookingPage() {
             className={`py-4 px-6 text-white font-bold text-lg rounded-full shadow-lg transition-all hover:scale-105
               ${selectedDestination && selectedAccommodation ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700" : "bg-gray-400 cursor-pointer"}`}
             disabled={!selectedDestination || !selectedAccommodation}
-            onClick={() => navigate("/payment")}
+            onClick={() => {
+              sessionStorage.setItem("members", JSON.stringify(members));
+              navigate("/payment");
+            }}
           >
             Proceed to Payment
           </button>

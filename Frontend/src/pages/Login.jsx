@@ -14,7 +14,7 @@ const Login = () => {
     try {
       console.log("Attempting login with:", { email, password: "***" });
       
-      const response = await fetch("http://localhost/Tour-Planner/backend/login.php", {
+      const response = await fetch("http://localhost/Travel-Planner/backend/login.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,6 +39,29 @@ const Login = () => {
       
     } catch (error) {
       console.error("Login Failed:", error.message);
+      setErrorMessage(error.message);
+    }
+  };
+
+  const handleShowPassword = async () => {
+    try {
+      const response = await fetch("http://localhost/Travel-Planner/backend/show_password.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok && data.status === 'success') {
+        setPassword(data.password);
+        setShowPassword(true);
+      } else {
+        throw new Error(data.message || "Failed to fetch password");
+      }
+    } catch (error) {
+      console.error("Error fetching password:", error.message);
       setErrorMessage(error.message);
     }
   };
@@ -85,7 +108,10 @@ const Login = () => {
         </div>
 
         <div className="mt-4 text-gray-300 w-full text-right">
-          <span className="text-purple-400 cursor-pointer font-semibold hover:underline hover:text-purple-300 transition duration-300">
+          <span
+            className="text-purple-400 cursor-pointer font-semibold hover:underline hover:text-purple-300 transition duration-300"
+            onClick={() => navigate("/forgot-password")}
+          >
             Forgot Password?
           </span>
         </div>

@@ -20,25 +20,21 @@ if ($conn->connect_error) {
 // Get JSON input
 $data = json_decode(file_get_contents("php://input"));
 
-if (isset($data->email) && isset($data->password)) {
+if (isset($data->email)) {
     $email = $data->email;
-    $password = $data->password;
 
     // Prepare and execute SQL query
-    $stmt = $conn->prepare("SELECT id, hashed_password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $hashed_password);
+        $stmt->bind_result($password);
         $stmt->fetch();
 
-        if (password_verify($password, $hashed_password)) {
-            echo json_encode(["status" => "success", "message" => "Login successful", "token" => md5(uniqid())]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Invalid credentials"]);
-        }
+        // Return the password in its original form
+        echo json_encode(["status" => "success", "password" => $password]);
     } else {
         echo json_encode(["status" => "error", "message" => "User not found"]);
     }

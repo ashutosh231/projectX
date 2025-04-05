@@ -6,8 +6,20 @@ export default function FakePaymentPage() {
   const navigate = useNavigate();
 
   const handlePayment = () => {
-    // alert("Payment Successful!");
-    navigate("/success"); // Redirect to a success page after payment
+    const bookingDetails = {
+      destination: sessionStorage.getItem("selectedDestination"),
+      accommodation: sessionStorage.getItem("selectedAccommodation"),
+      totalCost: sessionStorage.getItem("totalCost"), // Retrieve totalCost from sessionStorage
+      date: new Date().toISOString(),
+      status: "Pending", // Add default status
+    };
+
+    // Save booking to local storage
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(bookingDetails);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    navigate("/success"); // Redirect to success page
   };
 
   return (

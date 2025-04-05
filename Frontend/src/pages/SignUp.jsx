@@ -18,7 +18,7 @@ const Signup = () => {
     }
   
     try {
-      const response = await fetch("http://localhost/Tour-Planner/backend/signup.php",
+      const response = await fetch("http://localhost/Travel-Planner/backend/signup.php",
         {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -1,23 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Profile = () => {
   const [userData, setUserData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    location: '',
-    bio: '',
-    gender: '',
-    dob: '',
+    name: "",
+    email: "",
+    phone: "",
+    location: "",
+    bio: "",
+    gender: "",
+    dob: "",
   });
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  const cities = [
+    "Delhi", "Mumbai", "Kolkata", "Chennai", "Bengaluru", "Hyderabad", "Ahmedabad", "Pune", "Jaipur",
+    "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Surat", "Vadodara", "Ludhiana", "Agra",
+    "Varanasi", "Prayagraj", "Meerut", "Patna", "Ranchi", "Bhubaneswar", "Guwahati", "Dehradun",
+    "Chandigarh", "Amritsar", "Jalandhar", "Faridabad", "Gurgaon", "Noida", "Ghaziabad",
+    "Coimbatore", "Madurai", "Visakhapatnam", "Vijayawada", "Thiruvananthapuram", "Kochi",
+    "Kozhikode", "Mangaluru", "Mysuru", "Hubballi", "Belagavi", "Nashik", "Aurangabad",
+    "Kolhapur", "Solapur", "Udaipur", "Jodhpur", "Kota", "Ajmer", "Bikaner", "Gwalior",
+    "Jabalpur", "Raipur", "Bilaspur", "Siliguri", "Durgapur", "Asansol", "Cuttack",
+    "Jamshedpur", "Srinagar", "Jammu", "Shimla", "Manali", "Leh", "Panaji", "Margao",
+    "Vasco da Gama"
+  ];
 
   useEffect(() => {
-    // Fetch user data from API or local storage
     const fetchUserData = async () => {
-      // Example: fetching data from an API
-      const response = await fetch('/api/getUserData');
-      const data = await response.json();
-      setUserData(data);
+      try {
+        const response = await fetch("http://localhost/Travel-Planner/backend/get_user_data.php");
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+        const data = await response.json();
+        if (!data.name || !data.email) {
+          throw new Error("Invalid user data received");
+        }
+        setUserData(data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setError(error.message || "Unable to fetch user data.");
+      }
     };
 
     fetchUserData();
@@ -25,118 +50,144 @@ const Profile = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setUserData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "location") {
+      if (value) {
+        const filteredSuggestions = cities.filter((city) =>
+          city.toLowerCase().startsWith(value.toLowerCase())
+        );
+        setSuggestions(filteredSuggestions);
+      } else {
+        setSuggestions([]);
+      }
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Example: submitting data to an API
-    fetch('/api/updateUserData', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('User data updated successfully', data);
-      })
-      .catch((error) => {
-        console.error('Error updating user data:', error);
+  const handleSuggestionClick = (city) => {
+    setUserData((prev) => ({ ...prev, location: city }));
+    setSuggestions([]);
+  };
+
+  const saveDetails = async () => {
+    try {
+      const response = await fetch("http://localhost/Travel-Planner/backend/update_user.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
       });
+
+      const data = await response.json();
+      if (!response.ok || data.error) {
+        throw new Error(data.error || "Update failed");
+      }
+
+      setMessage(data.message || "Details saved successfully");
+      setError("");
+    } catch (err) {
+      setError(err.message);
+      setMessage("");
+    }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-purple-400 to-pink-400 p-6">
-      <div className="w-full max-w-lg bg-white/10 backdrop-blur-lg p-8 shadow-2xl rounded-2xl flex flex-col gap-6 border border-white/20">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
-          Profile
-        </h2>
-        <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
-          {/* Full Name Input */}
-          <input
-            type="text"
-            name="name"
-            value={userData.name}
-            onChange={handleInputChange}
-            placeholder="Full Name"
-            className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-          />
-          
-          {/* Email Input */}
-          <input
-            type="email"
-            name="email"
-            value={userData.email}
-            onChange={handleInputChange}
-            placeholder="Email Address"
-            className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-            // readOnly
-          />
-          
-          {/* Phone Number Input */}
-          <input
-            type="text"
-            name="phone"
-            value={userData.phone}
-            onChange={handleInputChange}
-            placeholder="Phone Number"
-            className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-          />
-          
-          {/* Location Input */}
-          <input
-            type="text"
-            name="location"
-            value={userData.location}
-            onChange={handleInputChange}
-            placeholder="Location"
-            className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-          />
-          
-          {/* Bio Input */}
-          <textarea
-            name="bio"
-            value={userData.bio}
-            onChange={handleInputChange}
-            placeholder="Bio"
-            className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-          />
-          
-          {/* Gender and DOB Inputs */}
-          <div className="flex gap-4">
-            {/* Gender Input */}
-            <input
-              type="text"
-              name="gender"
-              value={userData.gender}
-              onChange={handleInputChange}
-              placeholder="Gender"
-              className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-            />
-            
-            {/* Date of Birth Input */}
-            <input
-              type="date"
-              name="dob"
-              value={userData.dob}
-              onChange={handleInputChange}
-              className="bg-gray-100 rounded-xl p-3 text-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition duration-300"
-            />
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-richblack-900 via-richblack-800 to-richblack-900 p-6">
+      <div className="w-full max-w-4xl bg-white/10 backdrop-blur-lg p-8 shadow-2xl rounded-2xl flex flex-row gap-6 border border-white/20">
+        <div className="w-1/3 flex flex-col items-center">
+          <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-4xl font-bold text-white">
+            {userData.name ? userData.name[0] : "?"}
           </div>
-
-          {/* Submit Button */}
+          <h2 className="text-2xl font-bold text-white mt-4">{userData.name || "User Name"}</h2>
+          <p className="text-gray-400">{userData.email || "user@example.com"}</p>
+        </div>
+        <div className="w-2/3 flex flex-col gap-4">
+          {error && <div className="text-red-500 text-center bg-red-100 p-4 rounded-xl">{error}</div>}
+          {message && <div className="text-green-500 text-center bg-green-100 p-4 rounded-xl">{message}</div>}
+          <div className="grid grid-cols-2 gap-4">
+            <label className="block">
+              <span className="text-gray-300">Name:</span>
+              <input
+                type="text"
+                name="name"
+                value={userData.name}
+                onChange={handleInputChange}
+                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+              />
+            </label>
+            <label className="block">
+              <span className="text-gray-300">Phone:</span>
+              <input
+                type="text"
+                name="phone"
+                value={userData.phone}
+                onChange={handleInputChange}
+                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+              />
+            </label>
+            <label className="block relative">
+              <span className="text-gray-300">Location:</span>
+              <input
+                type="text"
+                name="location"
+                value={userData.location}
+                onChange={handleInputChange}
+                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+              />
+              {suggestions.length > 0 && (
+                <ul className="absolute z-10 bg-gray-800 text-white w-full mt-1 rounded shadow-lg">
+                  {suggestions.map((city, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleSuggestionClick(city)}
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-700"
+                    >
+                      {city}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </label>
+            <label className="block">
+              <span className="text-gray-300">Gender:</span>
+              <select
+                name="gender"
+                value={userData.gender}
+                onChange={handleInputChange}
+                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+              >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label className="block">
+              <span className="text-gray-300">Date of Birth:</span>
+              <input
+                type="date"
+                name="dob"
+                value={userData.dob}
+                onChange={handleInputChange}
+                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+              />
+            </label>
+          </div>
+          <label className="block">
+            <span className="text-gray-300">Bio:</span>
+            <textarea
+              name="bio"
+              value={userData.bio}
+              onChange={handleInputChange}
+              className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
+            />
+          </label>
           <button
-            type="submit"
-            className="bg-gradient-to-r from-purple-400 to-pink-400 text-white rounded-xl p-3 text-lg font-semibold mt-6 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50 transition duration-300"
+            onClick={saveDetails}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-end"
           >
-            Save Profile
+            Save Details
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

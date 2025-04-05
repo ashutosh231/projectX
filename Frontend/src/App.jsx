@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -20,6 +19,8 @@ import SignUp from "./pages/SignUp";
 import PaymentOption from "./pages/PaymentOption";
 import Success from "./pages/PaymentSuccess";
 import Profile from "./components/Profile";
+import ForgotPassword from "./pages/ForgotPassword";
+import MyBookings from "./pages/MyBookings";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/recommend" element={<Recommend />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/activities" element={<Activities />} />
         <Route path="/accommodation" element={<Accommodation />} />
         <Route path="/travel-tips" element={<TravelTips />} />
@@ -54,7 +56,8 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/paymentOption" element={<PaymentOption />} />
         <Route path="/success" element={<Success />} />
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/my-bookings" element={<MyBookings />} />
       </Routes>
       <Footer />
     </div>

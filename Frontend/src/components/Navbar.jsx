@@ -2,7 +2,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "/Applications/XAMPP/xamppfiles/htdocs/Tour-Planner/Frontend/src/assets/Logo.png";
+import Logo from "/Applications/XAMPP/xamppfiles/htdocs/Travel-Planner/Frontend/src/assets/Logo.png";
 
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
@@ -49,6 +49,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Accommodation", path: "/accommodation" },
+    { name: "My Bookings", path: "/my-bookings" },
   ];
 
   return (
@@ -59,7 +60,6 @@ export default function Navbar() {
           className="text-2xl font-bold uppercase tracking-wide hover:text-teal-400 transition duration-300"
         >
           <img src={Logo} alt="Logo" className="w-35 h-15 rounded-lg " />
-
         </Link>
 
         {/* Mobile Menu Icon */}

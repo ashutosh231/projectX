@@ -25,6 +25,8 @@ export default function PaymentPage() {
   }, []);
 
   const handlePayment = () => {
+    const totalCost = selectedAccommodation.cost * numNights;
+    sessionStorage.setItem("totalCost", totalCost); // Store totalCost in sessionStorage
     navigate("/paymentOption"); // Navigate to PaymentOption page
   };
 
