@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -13,7 +15,9 @@ const Profile = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const locationRef = useRef(null);
+  
   const cities = [
     "Delhi", "Mumbai", "Kolkata", "Chennai", "Bengaluru", "Hyderabad", "Ahmedabad", "Pune", "Jaipur",
     "Lucknow", "Kanpur", "Nagpur", "Indore", "Bhopal", "Surat", "Vadodara", "Ludhiana", "Agra",
@@ -26,6 +30,11 @@ const Profile = () => {
     "Jamshedpur", "Srinagar", "Jammu", "Shimla", "Manali", "Leh", "Panaji", "Margao",
     "Vasco da Gama"
   ];
+
+  // Set page as loaded for animations
+  useEffect(() => {
+    setIsPageLoaded(true);
+  }, []);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -47,6 +56,18 @@ const Profile = () => {
 
     fetchUserData();
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (locationRef.current && !locationRef.current.contains(event.target)) {
+        setSuggestions([]);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [locationRef]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -90,103 +111,174 @@ const Profile = () => {
     }
   };
 
+  // Form section styling from SignUp page
+  const sectionStyle = "bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:bg-white/15";
+  const headerStyle = "text-xl font-semibold text-purple-300 mb-3 flex items-center gap-2";
+  const inputStyle = "bg-white/20 rounded-xl p-3 w-full text-sm text-gray-200 placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/30 transition duration-300";
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-richblack-900 via-richblack-800 to-richblack-900 p-6">
-      <div className="w-full max-w-4xl bg-white/10 backdrop-blur-lg p-8 shadow-2xl rounded-2xl flex flex-row gap-6 border border-white/20">
-        <div className="w-1/3 flex flex-col items-center">
-          <div className="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-4xl font-bold text-white">
-            {userData.name ? userData.name[0] : "?"}
+    <div className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden bg-gradient-to-br from-richblack-900 via-purple-900/20 to-richblack-800">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute w-96 h-96 rounded-full bg-purple-600/20 blur-3xl -top-10 -left-10 animate-pulse"></div>
+        <div className="absolute w-96 h-96 rounded-full bg-pink-600/20 blur-3xl -bottom-10 -right-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute w-72 h-72 rounded-full bg-blue-600/20 blur-3xl bottom-20 left-1/4 animate-pulse" style={{ animationDelay: '3s' }}></div>
+      </div>
+
+      <div className={`w-full min-h-screen flex items-center justify-center p-6 transition-opacity duration-1000 ${isPageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="w-full max-w-6xl">
+          {/* Header */}
+          <div className="text-center mb-8 transform transition-all duration-700">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent mb-4">
+              Your Profile
+            </h1>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Manage your details and preferences to personalize your travel experience with us.
+            </p>
+            <div className="w-40 h-1.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mt-5"></div>
           </div>
-          <h2 className="text-2xl font-bold text-white mt-4">{userData.name || "User Name"}</h2>
-          <p className="text-gray-400">{userData.email || "user@example.com"}</p>
-        </div>
-        <div className="w-2/3 flex flex-col gap-4">
-          {error && <div className="text-red-500 text-center bg-red-100 p-4 rounded-xl">{error}</div>}
-          {message && <div className="text-green-500 text-center bg-green-100 p-4 rounded-xl">{message}</div>}
-          <div className="grid grid-cols-2 gap-4">
-            <label className="block">
-              <span className="text-gray-300">Name:</span>
-              <input
-                type="text"
-                name="name"
-                value={userData.name}
-                onChange={handleInputChange}
-                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-              />
-            </label>
-            <label className="block">
-              <span className="text-gray-300">Phone:</span>
-              <input
-                type="text"
-                name="phone"
-                value={userData.phone}
-                onChange={handleInputChange}
-                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-              />
-            </label>
-            <label className="block relative">
-              <span className="text-gray-300">Location:</span>
-              <input
-                type="text"
-                name="location"
-                value={userData.location}
-                onChange={handleInputChange}
-                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-              />
-              {suggestions.length > 0 && (
-                <ul className="absolute z-10 bg-gray-800 text-white w-full mt-1 rounded shadow-lg">
-                  {suggestions.map((city, index) => (
-                    <li
-                      key={index}
-                      onClick={() => handleSuggestionClick(city)}
-                      className="px-4 py-2 cursor-pointer hover:bg-gray-700"
-                    >
-                      {city}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </label>
-            <label className="block">
-              <span className="text-gray-300">Gender:</span>
-              <select
-                name="gender"
-                value={userData.gender}
-                onChange={handleInputChange}
-                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </label>
-            <label className="block">
-              <span className="text-gray-300">Date of Birth:</span>
-              <input
-                type="date"
-                name="dob"
-                value={userData.dob}
-                onChange={handleInputChange}
-                className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-              />
-            </label>
+
+          {/* Alert messages */}
+          {error && (
+            <div className="w-full max-w-3xl mx-auto mb-6 bg-red-500/20 backdrop-blur-md border border-red-500/30 rounded-xl p-4 text-white text-center">
+              {error}
+            </div>
+          )}
+          {message && (
+            <div className="w-full max-w-3xl mx-auto mb-6 bg-green-500/20 backdrop-blur-md border border-green-500/30 rounded-xl p-4 text-white text-center">
+              {message}
+            </div>
+          )}
+
+          {/* Form sections with staggered entrance */}
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* Personal Information */}
+            <div className={`${sectionStyle} transform transition-all duration-700 delay-100 ${isPageLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <h3 className={headerStyle}>
+                <span className="text-pink-400 text-2xl">👤</span> Personal Information
+              </h3>
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={userData.name}
+                  onChange={handleInputChange}
+                  className={inputStyle}
+                />
+                <div className="grid grid-cols-2 gap-4">
+                  <select
+                    name="gender"
+                    value={userData.gender}
+                    onChange={handleInputChange}
+                    className={`${inputStyle} cursor-pointer appearance-none`}
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
+                  <input
+                    type="date"
+                    name="dob"
+                    placeholder="Date of Birth"
+                    value={userData.dob}
+                    onChange={handleInputChange}
+                    className={inputStyle}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div className={`${sectionStyle} transform transition-all duration-700 delay-200 ${isPageLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <h3 className={headerStyle}>
+                <span className="text-pink-400 text-2xl">📱</span> Contact Details
+              </h3>
+              <div className="space-y-4">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={userData.email}
+                  onChange={handleInputChange}
+                  className={inputStyle}
+                  disabled
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={userData.phone}
+                  onChange={handleInputChange}
+                  className={inputStyle}
+                />
+                <div className="relative" ref={locationRef}>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter Location"
+                    value={userData.location}
+                    onChange={handleInputChange}
+                    className={inputStyle}
+                  />
+                  {suggestions.length > 0 && (
+                    <div className="absolute z-10 w-full mt-1 max-h-60 overflow-auto bg-black/50 backdrop-blur-xl rounded-xl border border-white/20 shadow-lg">
+                      {suggestions.map((city, index) => (
+                        <div
+                          key={index}
+                          className="p-3 cursor-pointer hover:bg-white/20 text-gray-200 text-sm transition-colors duration-200"
+                          onClick={() => handleSuggestionClick(city)}
+                        >
+                          {city}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className={`${sectionStyle} transform transition-all duration-700 delay-300 ${isPageLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} col-span-1 lg:col-span-2`}>
+              <h3 className={headerStyle}>
+                <span className="text-pink-400 text-2xl">✨</span> About You
+              </h3>
+              <div className="space-y-4">
+                <textarea
+                  name="bio"
+                  placeholder="Tell us about yourself and your travel preferences..."
+                  value={userData.bio}
+                  onChange={handleInputChange}
+                  rows="4"
+                  className={`${inputStyle} resize-none`}
+                ></textarea>
+              </div>
+            </div>
           </div>
-          <label className="block">
-            <span className="text-gray-300">Bio:</span>
-            <textarea
-              name="bio"
-              value={userData.bio}
-              onChange={handleInputChange}
-              className="w-full mt-1 p-2 rounded bg-gray-900 text-white"
-            />
-          </label>
-          <button
-            onClick={saveDetails}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-end"
-          >
-            Save Details
-          </button>
+
+          {/* Submit button */}
+          <div className="flex flex-col items-center space-y-6 mt-8">
+            <button
+              className={`w-full max-w-md h-14 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white font-bold rounded-xl text-lg hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-purple-500/30 flex items-center justify-center gap-2 bg-size-200 animate-gradient ${isPageLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              onClick={saveDetails}
+              style={{ transitionDelay: '500ms' }}
+            >
+              <span className="text-xl">💾</span>
+              Save Changes
+            </button>
+
+            <button
+              className={`text-purple-400 hover:text-purple-300 transition-all duration-300 ${isPageLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              onClick={() => navigate('/')}
+              style={{ transitionDelay: '600ms' }}
+            >
+              Back to Home
+            </button>
+          </div>
         </div>
       </div>
     </div>
