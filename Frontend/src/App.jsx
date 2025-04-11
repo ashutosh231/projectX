@@ -21,6 +21,8 @@ import Success from "./pages/PaymentSuccess";
 import Profile from "./components/Profile";
 import ForgotPassword from "./pages/ForgotPassword";
 import MyBookings from "./pages/MyBookings";
+import DestinationDetails from "./components/DestinationDetails"; // ✅ Correct
+ // Fixed import
 
 function App() {
   return (
@@ -58,6 +60,8 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path="/destination-details" element={<DestinationDetails />} />
+        {/* 404 Page */}
       </Routes>
       <Footer />
     </div>

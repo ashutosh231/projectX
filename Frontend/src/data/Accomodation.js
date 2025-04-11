@@ -61,7 +61,7 @@ export const accommodations = [
   },
   // Indian Hotels
   {
-    image: "https://www.ihcltata.com/content/dam/tajhotels/in/en/banner/outer-banner.jpg",
+    image: "https://www.oberoihotels.com/-/media/oberoi-hotels/website-images/The-Oberoi-Cecil-Shimla/Travel-Information/spotlight/Cecil.jpg",
     title: "The Oberoi Cecil",
     subTitle: "A colonial-style luxury hotel in the heart of Shimla with breathtaking views of the Himalayas.",
     location: "Shimla, India",
@@ -73,7 +73,7 @@ export const accommodations = [
     reviews: 320
   },
   {
-    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/d4/98/4e/ayush-resort.jpg?w=700&h=-1&s=1",
+    image: "https://content3.jdmagicbox.com/v2/comp/manali/u7/9999p1901.1901.171007122023.j7u7/catalogue/manu-allaya-booking-office-mall-road-manali-resort-bookings-xx7yo995gl.jpg",
     title: "Manu Allaya Resort",
     subTitle: "A luxurious retreat in Manali, offering mesmerizing views and premium amenities.",
     location: "Manali, India",
@@ -85,7 +85,7 @@ export const accommodations = [
     reviews: 280
   },
   {
-    image: "https://www.tajhotels.com/content/dam/luxury/hotels/Taj_Palace_Delhi/images/homepage-carousel/04_Facade.jpg",
+    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/103703163.jpg?k=760f615013b8331e247fcd22e5a6c98be3a2dc24f664c74021c28dc820acbaaf&o=&hp=1",
     title: "Taj Mahal Palace",
     subTitle: "A heritage hotel in Mumbai, offering world-class hospitality and iconic views of the Gateway of India.",
     location: "Mumbai, India",
@@ -97,7 +97,7 @@ export const accommodations = [
     reviews: 500
   },
   {
-    image: "https://www.tajhotels.com/content/dam/luxury/hotels/UmaidBhawanPalaceJodhpur/images/gallery/Facade-of-umaid-bhawan-palace-jodhpur.jpg",
+    image: "https://aroyalaffair.in/wp-content/uploads/2020/01/umaid-bhawan-palace-jodhpur-atul-pratap-chauhan-photography-an-overview-external.jpg",
     title: "Umaid Bhawan Palace",
     subTitle: "Live like royalty at one of the world's most luxurious heritage hotels in Jodhpur.",
     location: "Jodhpur, India",
@@ -109,7 +109,7 @@ export const accommodations = [
     reviews: 450
   },
   {
-    image: "https://www.tajhotels.com/content/dam/luxury/hotels/TajLakePalaceUdaipur/images/gallery/Taj-Lake-Palace-Udaipur-facade.jpg",
+    image: "https://www.finnable.com/wp-content/uploads/2024/01/Taj-lake-palace.jpeg",
     title: "Taj Lake Palace",
     subTitle: "A floating palace on Lake Pichola, offering a magical and romantic experience.",
     location: "Udaipur, India",

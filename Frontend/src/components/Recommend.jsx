@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -29,10 +28,10 @@ export default function Recommend() {
     setCurrentSlide(0); // Reset slider to the first slide when filtering
   };
 
-  // Handle booking navigation
-  const handleBooking = (destination) => {
+  // Handle Explore More navigation
+  const handleExploreMore = (destination) => {
     sessionStorage.setItem("selectedDestination", JSON.stringify(destination));
-    navigate("/booking");
+    navigate("/destination-details"); // Navigate to the details page
   };
 
   // Automatic slider functionality
@@ -121,9 +120,9 @@ export default function Recommend() {
                       <p className="text-gray-300 mt-2">{destination.subTitle}</p>
                       <button
                         className="mt-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:shadow-xl"
-                        onClick={() => handleBooking(destination)}
+                        onClick={() => handleExploreMore(destination)}
                       >
-                        Book Now
+                        Explore More
                       </button>
                     </div>
                   </div>
@@ -136,7 +135,7 @@ export default function Recommend() {
         {/* Destinations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredDestinations.map((destination, index) => (
-            <TiltCard key={index} destination={destination} handleBooking={handleBooking} />
+            <TiltCard key={index} destination={destination} handleExploreMore={handleExploreMore} />
           ))}
         </div>
       </div>
@@ -145,7 +144,7 @@ export default function Recommend() {
 }
 
 // TiltCard Component
-const TiltCard = ({ destination, handleBooking }) => {
+const TiltCard = ({ destination, handleExploreMore }) => {
   const cardRef = useRef(null);
   const [cursorStyle, setCursorStyle] = useState({ top: "50%", left: "50%", opacity: 0 });
 
@@ -231,9 +230,9 @@ const TiltCard = ({ destination, handleBooking }) => {
         </div>
         <button
           className="w-full cursor-pointer bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:shadow-xl"
-          onClick={() => handleBooking(destination)}
+          onClick={() => handleExploreMore(destination)}
         >
-          Book Now
+          Explore More
         </button>
       </div>
     </motion.div>
@@ -252,5 +251,5 @@ TiltCard.propTypes = {
     rating: PropTypes.number.isRequired,
     reviews: PropTypes.number.isRequired,
   }).isRequired,
-  handleBooking: PropTypes.func.isRequired,
+  handleExploreMore: PropTypes.func.isRequired,
 };

@@ -1,4 +1,3 @@
-
 export const destinations = [
   {
     image: "https://images.pexels.com/photos/1423580/pexels-photo-1423580.jpeg?cs=srgb&dl=pexels-jplenio-1423580.jpg&fm=jpg",
@@ -37,7 +36,7 @@ export const destinations = [
     reviews: 5500
   },
   {
-    image: "https://images.unsplash.com/photo-1648351152045-9e3e12fdc74e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1648351152045-9e3e12fdc74e?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
     title: "Manali",
     subTitle: "A paradise for nature lovers, Manali is a beautiful hill station in Himachal Pradesh.",
     location: "Himachal Pradesh, India",
@@ -49,7 +48,7 @@ export const destinations = [
     reviews: 4800
   },
   {
-    image: "https://images.unsplash.com/photo-1589564972271-05f2cf7e772f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1589564972271-05f2cf7e772f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
     title: "Shimla",
     subTitle: "The Queen of Hills, Shimla is a charming colonial town in Himachal Pradesh.",
     location: "Himachal Pradesh, India",
@@ -61,7 +60,7 @@ export const destinations = [
     reviews: 4600
   },
   {
-    image: "https://plus.unsplash.com/premium_photo-1697730288821-62c119fb7c5d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://plus.unsplash.com/premium_photo-1697730288821-62c119fb7c5d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
     title: "Jaipur",
     subTitle: "The Pink City, Jaipur is a blend of royal heritage and vibrant culture.",
     location: "Rajasthan, India",
@@ -73,7 +72,7 @@ export const destinations = [
     reviews: 5200
   },
   {
-    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3",
     title: "Goa",
     subTitle: "The land of sun, sand, and sea, Goa is India's party capital.",
     location: "Goa, India",
@@ -107,15 +106,138 @@ export const destinations = [
     distance: "700 km",
     rating: 4.7,
     reviews: 4500
+  },
+  {
+    image: "https://images.unsplash.com/photo-1622225074638-1d80c0388697?q=80&w=3186&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Dharamshala",
+    subTitle: "Home to the Dalai Lama, surrounded by cedar forests and Tibetan culture.",
+    location: "Himachal Pradesh, India",
+    description: "Dharamshala is famous for its spiritual ambiance, monasteries, and beautiful trekking spots.",
+    cost: "9999",
+    duration: "2-3 days",
+    distance: "510 km",
+    rating: 4.7,
+    reviews: 3600
+  },
+  {
+    image: "https://images.unsplash.com/photo-1631139946993-b29d3b5c00a9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2hhbmRyYXRhbHxlbnwwfHwwfHx8MA%3D%3D",
+    title: "Chandratal Lake",
+    subTitle: "The Moon Lake, a high-altitude lake in the Spiti region of Himachal Pradesh.",
+    location: "Himachal Pradesh, India",
+    description: "Chandratal is known for its crescent shape and stunning natural beauty, ideal for camping and photography.",
+    cost: "12999",
+    duration: "2 days",
+    distance: "850 km",
+    rating: 4.9,
+    reviews: 2500
+  },
+  {
+    image: "https://plus.unsplash.com/premium_photo-1697729434815-40ab4970ebc1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXlzb3JlfGVufDB8fDB8fHww",
+    title: "Mysore",
+    subTitle: "Known for its royal heritage and majestic Mysore Palace.",
+    location: "Karnataka, India",
+    description: "Mysore is rich in history, culture, and art, and is famous for Dussehra celebrations.",
+    cost: "13999",
+    duration: "2 days",
+    distance: "800 km",
+    rating: 4.7,
+    reviews: 4100
+  },
+  {
+    image: "https://images.unsplash.com/photo-1574340025134-44ba299d3990?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhhbXBpfGVufDB8fDB8fHww",
+    title: "Hampi",
+    subTitle: "A UNESCO World Heritage Site with ancient ruins and temples.",
+    location: "Karnataka, India",
+    description: "Hampi showcases the architectural brilliance of the Vijayanagara Empire amidst a surreal landscape.",
+    cost: "14999",
+    duration: "2 days",
+    distance: "1100 km",
+    rating: 4.8,
+    reviews: 3000
+  },
+  {
+    image: "https://images.unsplash.com/photo-1566303052303-b2d2a9f16f0a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cG9uZGljaGVycnl8ZW58MHx8MHx8fDA%3D",
+    title: "Pondicherry",
+    subTitle: "A French colonial town with serene beaches and vibrant cafes.",
+    location: "Tamil Nadu, India",
+    description: "Pondicherry is famous for its spiritual ambiance, colorful streets, and coastal charm.",
+    cost: "15999",
+    duration: "3 days",
+    distance: "1000 km",
+    rating: 4.8,
+    reviews: 3500
+  },
+  {
+    image: "https://images.unsplash.com/photo-1527705381526-469031509a9d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2FueWFLdW1hcml8ZW58MHx8MHx8fDA%3D",
+    title: "Kanyakumari",
+    subTitle: "The southernmost tip of India where three seas meet.",
+    location: "Tamil Nadu, India",
+    description: "Kanyakumari is known for its stunning sunrises, spiritual landmarks, and confluence of oceans.",
+    cost: "13999",
+    duration: "2 days",
+    distance: "1400 km",
+    rating: 4.7,
+    reviews: 3200
+  },
+  // New destinations with costs between 50,000 and 80,000
+  {
+    image: "https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXN8ZW58MHx8MHx8fDA%3D",
+    title: "Paris",
+    subTitle: "The City of Light, famous for its art, culture, and the Eiffel Tower.",
+    location: "Île-de-France, France",
+    description: "Paris offers a blend of history, romance, and modernity with iconic landmarks like the Louvre and Notre-Dame.",
+    cost: "75000",
+    duration: "5 days",
+    distance: "6500 km",
+    rating: 4.9,
+    reviews: 9200
+  },
+  {
+    image: "https://images.unsplash.com/photo-1602940659805-770d1b3b9911?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmV3JTIweW9yayUyMGNpdHl8ZW58MHx8MHx8fDA%3D",
+    title: "New York City",
+    subTitle: "The Big Apple, a global hub of culture, finance, and entertainment.",
+    location: "New York, USA",
+    description: "Explore Times Square, the Statue of Liberty, and Central Park in this bustling metropolis.",
+    cost: "80000",
+    duration: "6 days",
+    distance: "12000 km",
+    rating: 4.8,
+    reviews: 10500
+  },
+  {
+    image: "https://images.unsplash.com/photo-1696519669474-3001c0e2b548?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Santorini",
+    subTitle: "A Greek island known for its white-washed buildings and stunning sunsets.",
+    location: "Cyclades, Greece",
+    description: "Santorini offers breathtaking views, volcanic beaches, and a rich history tied to ancient civilizations.",
+    cost: "65000",
+    duration: "4 days",
+    distance: "4500 km",
+    rating: 4.9,
+    reviews: 7800
+  },
+  {
+    image: "https://images.unsplash.com/photo-1557409518-691ebcd96038?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8VG9reW98ZW58MHx8MHx8fDA%3D",
+    title: "Tokyo",
+    subTitle: "A vibrant city blending tradition and futuristic innovation.",
+    location: "Tokyo, Japan",
+    description: "Experience Tokyo's bustling streets, ancient temples, and cutting-edge technology.",
+    cost: "70000",
+    duration: "5 days",
+    distance: "9500 km",
+    rating: 4.8,
+    reviews: 8900
+  },
+  {
+    image: "https://plus.unsplash.com/premium_photo-1697730061063-ad499e343f26?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Cape Town",
+    subTitle: "A coastal gem with stunning landscapes and rich history.",
+    location: "Western Cape, South Africa",
+    description: "Cape Town is famous for Table Mountain, Cape Point, and its vibrant multicultural vibe.",
+    cost: "60000",
+    duration: "5 days",
+    distance: "8000 km",
+    rating: 4.7,
+    reviews: 6700
   }
 ];
-
-
-
-
-
-
-
-
-
-
