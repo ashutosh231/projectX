@@ -208,29 +208,39 @@ const ForgotPassword = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mb-8"></div>
 
-            {/* Progress indicator */}
-            <div className="w-full flex items-center justify-between mb-8">
-              {[1, 2, 3].map((s) => (
-                <div key={s} className="flex flex-col items-center">
-                  <div 
-                    className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
-                      step >= s 
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 border-transparent' 
-                        : 'bg-transparent border-gray-500'
-                    }`}
-                  >
-                    <span className={`text-sm font-bold ${step >= s ? 'text-white' : 'text-gray-500'}`}>
-                      {s}
+            {/* Progress indicator with consistent spacing */}
+            <div className="w-full flex items-center justify-center mb-8 relative">
+              {/* Step indicators with consistent spacing */}
+              <div className="flex justify-between w-full max-w-sm relative z-10">
+                {[1, 2, 3].map((s) => (
+                  <div key={s} className="flex flex-col items-center w-24">
+                    <div 
+                      className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                        step >= s 
+                          ? 'bg-gradient-to-r from-purple-500 to-pink-500 border-transparent' 
+                          : 'bg-transparent border-gray-500'
+                      }`}
+                    >
+                      <span className={`text-sm font-bold ${step >= s ? 'text-white' : 'text-gray-500'}`}>
+                        {s}
+                      </span>
+                    </div>
+                    <span className={`text-xs mt-2 ${step >= s ? 'text-purple-300' : 'text-gray-500'}`}>
+                      {s === 1 ? 'Email' : s === 2 ? 'OTP' : 'Password'}
                     </span>
                   </div>
-                  <span className={`text-xs mt-2 ${step >= s ? 'text-purple-300' : 'text-gray-500'}`}>
-                    {s === 1 ? 'Email' : s === 2 ? 'OTP' : 'Password'}
-                  </span>
+                ))}
+              </div>
+              
+              {/* Connecting lines with consistent spacing */}
+              <div className="absolute top-5 left-0 w-full px-4">
+                <div className="w-full flex justify-center relative">
+                  {/* Line between 1 and 2 */}
+                  <div className={`h-0.5 absolute left-[18%] right-[52%] transition-all duration-700 ${step > 1 ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-gray-700'}`}></div>
+                  {/* Line between 2 and 3 */}
+                  <div className={`h-0.5 absolute left-[52%] right-[18%] transition-all duration-700 ${step > 2 ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-gray-700'}`}></div>
                 </div>
-              ))}
-              {/* Connecting lines */}
-              <div className={`h-0.5 absolute w-1/4 left-[21%] top-[7.5rem] transition-all duration-700 ${step > 1 ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-gray-700'}`}></div>
-              <div className={`h-0.5 absolute w-1/4 right-[21%] top-[7.5rem] transition-all duration-700 ${step > 2 ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-gray-700'}`}></div>
+              </div>
             </div>
 
             {message.text && (
